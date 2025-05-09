@@ -1,534 +1,706 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>StaffPro - Умное управление персоналом</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
     <header>
-        <div class="container">
-            <div class="logo">
-                <span>Staff<span class="accent">Pro</span></span>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#features">Возможности</a></li>
-                    <li><a href="#pricing">Тарифы</a></li>
-                    <li><a href="#testimonials">Отзывы</a></li>
-                    <li><a href="#faq">FAQ</a></li>
-                    <li><a href="#contact">Контакты</a></li>
-                </ul>
-            </nav>
-            <div class="header-cta">
-                <a href="#demo" class="btn btn-secondary">Демо</a>
-                <a href="#contact" class="btn btn-primary">Начать бесплатно</a>
-            </div>
-            <div class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </div>
+      <div class="container">
+        <div class="logo">
+          <span>Staff<span class="accent">Pro</span></span>
         </div>
+        <nav>
+          <ul>
+            <li><a href="#features">Возможности</a></li>
+            <li><a href="#pricing">Тарифы</a></li>
+            <li><a href="#testimonials">Отзывы</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact">Контакты</a></li>
+          </ul>
+        </nav>
+        <div class="header-cta">
+          <a href="#demo" class="btn btn-secondary">Демо</a>
+          <a href="#contact" class="btn btn-primary">Начать бесплатно</a>
+        </div>
+        <div class="mobile-menu-btn">
+          <i class="fas fa-bars"></i>
+        </div>
+      </div>
     </header>
 
     <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Эффективное управление персоналом стало проще</h1>
-                <p>StaffPro — современное решение для бизнеса любого масштаба, которое помогает автоматизировать HR-процессы и увеличить продуктивность команды.</p>
-                <div class="hero-cta">
-                    <a href="#contact" class="btn btn-primary">Попробовать бесплатно</a>
-                    <a href="#demo" class="btn btn-video"><i class="fas fa-play-circle"></i> Смотреть демо</a>
-                </div>
-                <div class="hero-stats">
-                    <div class="stat">
-                        <span class="stat-number">500+</span>
-                        <span class="stat-text">Компаний используют</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">30%</span>
-                        <span class="stat-text">Рост эффективности</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">24/7</span>
-                        <span class="stat-text">Техподдержка</span>
-                    </div>
-                </div>
+      <div class="container">
+        <div class="hero-content">
+          <h1>Эффективное управление персоналом стало проще</h1>
+          <p>
+            StaffPro — современное решение для бизнеса любого масштаба, которое
+            помогает автоматизировать HR-процессы и увеличить продуктивность
+            команды.
+          </p>
+          <div class="hero-cta">
+            <a href="#contact" class="btn btn-primary">Попробовать бесплатно</a>
+            <a href="#demo" class="btn btn-video"
+              ><i class="fas fa-play-circle"></i> Смотреть демо</a
+            >
+          </div>
+          <div class="hero-stats">
+            <div class="stat">
+              <span class="stat-number">500+</span>
+              <span class="stat-text">Компаний используют</span>
             </div>
-            <div class="container-screenshots">
-                <div class="pre-screen">
-                    <img src="images/screen.png">
-                    <div class="screen-slider">
-                        <div class="screen-slide">
-                            <img src="images/screenshots/screen/event.jpg">
-                        </div>
-                        <div class="screen-slide">
-                            <img src="images/screenshots/screen/room.jpg">
-                        </div>
-                        <div class="screen-slide">
-                            <img src="images/screenshots/screen/scheduler.jpg">
-                        </div>
-                    </div>
-                </div>
-                <div class="pre-pad">
-                    <img src="images/pad.png">
-                    <div class="pad-slider">
-                        <div class="pad-slide">
-                            <img src="images/screenshots/pad/event.jpg">
-                        </div>
-                        <div class="pad-slide">
-                            <img src="images/screenshots/pad/room.jpg">
-                        </div>
-                        <div class="pad-slide">
-                            <img src="images/screenshots/pad/scheduler.jpg">
-                        </div>
-                    </div>
-                </div>
-                <div class="pre-phone">
-                    <img src="images/phone.png">
-                    <div class="phone-slider">
-                        <div class="phone-slide">
-                            <img src="images/screenshots/phone/event.jpg">
-                        </div>
-                        <div class="phone-slide">
-                            <img src="images/screenshots/phone/room.jpg">
-                        </div>
-                        <div class="phone-slide">
-                            <img src="images/screenshots/phone/scheduler.jpg">
-                        </div>
-                    </div>
-                </div>
+            <div class="stat">
+              <span class="stat-number">30%</span>
+              <span class="stat-text">Рост эффективности</span>
             </div>
+            <div class="stat">
+              <span class="stat-number">24/7</span>
+              <span class="stat-text">Техподдержка</span>
+            </div>
+          </div>
         </div>
+        <div class="container-screenshots">
+          <div class="pre-screen">
+            <img src="images/screen.png" />
+            <div class="screen-slider">
+              <div class="screen-slide">
+                <img src="images/screenshots/screen/event.jpg" />
+              </div>
+              <div class="screen-slide">
+                <img src="images/screenshots/screen/room.jpg" />
+              </div>
+              <div class="screen-slide">
+                <img src="images/screenshots/screen/scheduler.jpg" />
+              </div>
+            </div>
+          </div>
+          <div class="pre-pad">
+            <img src="images/pad.png" />
+            <div class="pad-slider">
+              <div class="pad-slide">
+                <img src="images/screenshots/pad/event.jpg" />
+              </div>
+              <div class="pad-slide">
+                <img src="images/screenshots/pad/room.jpg" />
+              </div>
+              <div class="pad-slide">
+                <img src="images/screenshots/pad/scheduler.jpg" />
+              </div>
+            </div>
+          </div>
+          <div class="pre-phone">
+            <img src="images/phone.png" />
+            <div class="phone-slider">
+              <div class="phone-slide">
+                <img src="images/screenshots/phone/event.jpg" />
+              </div>
+              <div class="phone-slide">
+                <img src="images/screenshots/phone/room.jpg" />
+              </div>
+              <div class="phone-slide">
+                <img src="images/screenshots/phone/scheduler.jpg" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="problems">
-        <div class="container">
-            <div class="section-header">
-                <h2>Проблемы, которые мы решаем</h2>
-                <p>Управление персоналом не должно быть сложным</p>
-            </div>
-            <div class="problem-cards">
-                <div class="problem-card">
-                    <div class="icon"><i class="fas fa-clock"></i></div>
-                    <h3>Учет рабочего времени</h3>
-                    <p>Сложности с отслеживанием отработанных часов и опозданиями сотрудников.</p>
-                </div>
-                <div class="problem-card">
-                    <div class="icon"><i class="fas fa-tasks"></i></div>
-                    <h3>Распределение задач</h3>
-                    <p>Отсутствие прозрачного механизма назначения и контроля выполнения задач.</p>
-                </div>
-                <div class="problem-card">
-                    <div class="icon"><i class="fas fa-users"></i></div>
-                    <h3>Командная работа</h3>
-                    <p>Сложности с координацией действий между отделами и сотрудниками.</p>
-                </div>
-                <div class="problem-card">
-                    <div class="icon"><i class="fas fa-chart-line"></i></div>
-                    <h3>Аналитика эффективности</h3>
-                    <p>Отсутствие объективных данных о производительности сотрудников.</p>
-                </div>
-            </div>
+      <div class="container">
+        <div class="section-header">
+          <h2>Проблемы, которые мы решаем</h2>
+          <p>Управление персоналом не должно быть сложным</p>
         </div>
+        <div class="problem-cards">
+          <div class="problem-card">
+            <div class="icon"><i class="fas fa-clock"></i></div>
+            <h3>Учет рабочего времени</h3>
+            <p>
+              Сложности с отслеживанием отработанных часов и опозданиями
+              сотрудников.
+            </p>
+          </div>
+          <div class="problem-card">
+            <div class="icon"><i class="fas fa-tasks"></i></div>
+            <h3>Распределение задач</h3>
+            <p>
+              Отсутствие прозрачного механизма назначения и контроля выполнения
+              задач.
+            </p>
+          </div>
+          <div class="problem-card">
+            <div class="icon"><i class="fas fa-users"></i></div>
+            <h3>Командная работа</h3>
+            <p>
+              Сложности с координацией действий между отделами и сотрудниками.
+            </p>
+          </div>
+          <div class="problem-card">
+            <div class="icon"><i class="fas fa-chart-line"></i></div>
+            <h3>Аналитика эффективности</h3>
+            <p>
+              Отсутствие объективных данных о производительности сотрудников.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section id="features" class="features">
-        <div class="container">
-            <div class="section-header">
-                <h2>Возможности StaffPro</h2>
-                <p>Полный набор инструментов для управления вашей командой</p>
-            </div>
-            <div class="features-container">
-                <div class="feature-block">
-                    <div class="feature-content">
-                        <h3>Умный учет рабочего времени</h3>
-                        <p>Автоматизированная система учета рабочего времени с возможностью гибкого графика и удаленной работы. Интеграция с биометрическими системами и мобильное приложение для отметок.</p>
-                        <ul class="feature-list">
-                            <li><i class="fas fa-check"></i> Автоматический расчет отработанных часов</li>
-                            <li><i class="fas fa-check"></i> Отслеживание опозданий и переработок</li>
-                            <li><i class="fas fa-check"></i> Управление отпусками и больничными</li>
-                            <li><i class="fas fa-check"></i> Гибкие настройки графика работы</li>
-                        </ul>
-                    </div>
-                    <div class="feature-image">
-                        <img src="https://via.placeholder.com/500x300" alt="Учет рабочего времени">
-                    </div>
-                </div>
-                
-                <div class="feature-block reverse">
-                    <div class="feature-image">
-                        <img src="https://via.placeholder.com/500x300" alt="Управление задачами">
-                    </div>
-                    <div class="feature-content">
-                        <h3>Эффективное управление задачами</h3>
-                        <p>Создавайте, назначайте и отслеживайте задачи в едином интерфейсе. Установка приоритетов, сроков и зависимостей между задачами.</p>
-                        <ul class="feature-list">
-                            <li><i class="fas fa-check"></i> Kanban-доски для визуализации процессов</li>
-                            <li><i class="fas fa-check"></i> Автоматические напоминания о сроках</li>
-                            <li><i class="fas fa-check"></i> Интеграция с календарями</li>
-                            <li><i class="fas fa-check"></i> Отчеты о выполнении задач</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="feature-block">
-                    <div class="feature-content">
-                        <h3>Аналитика и отчетность</h3>
-                        <p>Получайте детальную аналитику эффективности команды и отдельных сотрудников. Настраиваемые дашборды и автоматическая генерация отчетов.</p>
-                        <ul class="feature-list">
-                            <li><i class="fas fa-check"></i> Визуализация KPI сотрудников</li>
-                            <li><i class="fas fa-check"></i> Сравнительный анализ продуктивности</li>
-                            <li><i class="fas fa-check"></i> Прогнозирование результатов</li>
-                            <li><i class="fas fa-check"></i> Экспорт отчетов в различных форматах</li>
-                        </ul>
-                    </div>
-                    <div class="feature-image">
-                        <img src="https://via.placeholder.com/500x300" alt="Аналитика и отчетность">
-                    </div>
-                </div>
-            </div>
+      <div class="container">
+        <div class="section-header">
+          <h2>Возможности StaffPro</h2>
+          <p>Полный набор инструментов для управления вашей командой</p>
         </div>
+        <div class="features-container">
+          <div class="feature-block">
+            <div class="feature-content">
+              <h3>Умный учет рабочего времени</h3>
+              <p>
+                Автоматизированная система учета рабочего времени с возможностью
+                гибкого графика и удаленной работы. Интеграция с биометрическими
+                системами и мобильное приложение для отметок.
+              </p>
+              <ul class="feature-list">
+                <li>
+                  <i class="fas fa-check"></i> Автоматический расчет
+                  отработанных часов
+                </li>
+                <li>
+                  <i class="fas fa-check"></i> Отслеживание опозданий и
+                  переработок
+                </li>
+                <li>
+                  <i class="fas fa-check"></i> Управление отпусками и
+                  больничными
+                </li>
+                <li>
+                  <i class="fas fa-check"></i> Гибкие настройки графика работы
+                </li>
+              </ul>
+            </div>
+            <div class="feature-image">
+              <img
+                src="https://via.placeholder.com/500x300"
+                alt="Учет рабочего времени"
+              />
+            </div>
+          </div>
+
+          <div class="feature-block reverse">
+            <div class="feature-image">
+              <img
+                src="https://via.placeholder.com/500x300"
+                alt="Управление задачами"
+              />
+            </div>
+            <div class="feature-content">
+              <h3>Эффективное управление задачами</h3>
+              <p>
+                Создавайте, назначайте и отслеживайте задачи в едином
+                интерфейсе. Установка приоритетов, сроков и зависимостей между
+                задачами.
+              </p>
+              <ul class="feature-list">
+                <li>
+                  <i class="fas fa-check"></i> Kanban-доски для визуализации
+                  процессов
+                </li>
+                <li>
+                  <i class="fas fa-check"></i> Автоматические напоминания о
+                  сроках
+                </li>
+                <li><i class="fas fa-check"></i> Интеграция с календарями</li>
+                <li><i class="fas fa-check"></i> Отчеты о выполнении задач</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="feature-block">
+            <div class="feature-content">
+              <h3>Аналитика и отчетность</h3>
+              <p>
+                Получайте детальную аналитику эффективности команды и отдельных
+                сотрудников. Настраиваемые дашборды и автоматическая генерация
+                отчетов.
+              </p>
+              <ul class="feature-list">
+                <li>
+                  <i class="fas fa-check"></i> Визуализация KPI сотрудников
+                </li>
+                <li>
+                  <i class="fas fa-check"></i> Сравнительный анализ
+                  продуктивности
+                </li>
+                <li>
+                  <i class="fas fa-check"></i> Прогнозирование результатов
+                </li>
+                <li>
+                  <i class="fas fa-check"></i> Экспорт отчетов в различных
+                  форматах
+                </li>
+              </ul>
+            </div>
+            <div class="feature-image">
+              <img
+                src="https://via.placeholder.com/500x300"
+                alt="Аналитика и отчетность"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="cta-middle">
-        <div class="container">
-            <h2>Не теряйте время на рутинные HR-задачи</h2>
-            <p>Более 500 компаний уже автоматизировали управление персоналом с помощью StaffPro</p>
-            <a href="#contact" class="btn btn-primary">Начать бесплатно</a>
-        </div>
+      <div class="container">
+        <h2>Не теряйте время на рутинные HR-задачи</h2>
+        <p>
+          Более 500 компаний уже автоматизировали управление персоналом с
+          помощью StaffPro
+        </p>
+        <a href="#contact" class="btn btn-primary">Начать бесплатно</a>
+      </div>
     </section>
 
     <section id="pricing" class="pricing">
-        <div class="container">
-            <div class="section-header">
-                <h2>Тарифные планы</h2>
-                <p>Выберите оптимальное решение для вашего бизнеса</p>
-            </div>
-            <div class="pricing-toggle">
-                <span>Ежемесячно</span>
-                <label class="switch">
-                    <input type="checkbox" id="pricing-toggle">
-                    <span class="slider round"></span>
-                </label>
-                <span>Ежегодно <span class="discount">-20%</span></span>
-            </div>
-            <div class="pricing-cards">
-                <div class="pricing-card">
-                    <div class="pricing-header">
-                        <h3>Стартап</h3>
-                        <div class="price">
-                            <span class="amount monthly">₽5,000</span>
-                            <span class="amount annual">₽4,000</span>
-                            <span class="period">/мес</span>
-                        </div>
-                        <p>Идеально для малых команд до 10 человек</p>
-                    </div>
-                    <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> Учет рабочего времени</li>
-                        <li><i class="fas fa-check"></i> Базовое управление задачами</li>
-                        <li><i class="fas fa-check"></i> Простая аналитика</li>
-                        <li><i class="fas fa-check"></i> Email поддержка</li>
-                        <li class="not-included"><i class="fas fa-times"></i> Расширенная отчетность</li>
-                        <li class="not-included"><i class="fas fa-times"></i> API интеграция</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-outline">Выбрать план</a>
-                </div>
-                
-                <div class="pricing-card popular">
-                    <div class="popular-badge">Популярный</div>
-                    <div class="pricing-header">
-                        <h3>Бизнес</h3>
-                        <div class="price">
-                            <span class="amount monthly">₽12,000</span>
-                            <span class="amount annual">₽9,600</span>
-                            <span class="period">/мес</span>
-                        </div>
-                        <p>Для растущих компаний до 50 сотрудников</p>
-                    </div>
-                    <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> Все функции тарифа "Стартап"</li>
-                        <li><i class="fas fa-check"></i> Расширенная аналитика</li>
-                        <li><i class="fas fa-check"></i> Интеграция с CRM</li>
-                        <li><i class="fas fa-check"></i> Приоритетная поддержка</li>
-                        <li><i class="fas fa-check"></i> API интеграция</li>
-                        <li class="not-included"><i class="fas fa-times"></i> Персональный менеджер</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-primary">Выбрать план</a>
-                </div>
-                
-                <div class="pricing-card">
-                    <div class="pricing-header">
-                        <h3>Корпоративный</h3>
-                        <div class="price">
-                            <span class="contact">Индивидуально</span>
-                        </div>
-                        <p>Для крупных компаний с особыми требованиями</p>
-                    </div>
-                    <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> Все функции тарифа "Бизнес"</li>
-                        <li><i class="fas fa-check"></i> Неограниченное количество пользователей</li>
-                        <li><i class="fas fa-check"></i> Индивидуальная настройка</li>
-                        <li><i class="fas fa-check"></i> Персональный менеджер</li>
-                        <li><i class="fas fa-check"></i> Премиум поддержка 24/7</li>
-                        <li><i class="fas fa-check"></i> Обучение сотрудников</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-outline">Связаться с нами</a>
-                </div>
-            </div>
+      <div class="container">
+        <div class="section-header">
+          <h2>Тарифные планы</h2>
+          <p>Выберите оптимальное решение для вашего бизнеса</p>
         </div>
+        <div class="pricing-toggle">
+          <span>Ежемесячно</span>
+          <label class="switch">
+            <input type="checkbox" id="pricing-toggle" />
+            <span class="slider round"></span>
+          </label>
+          <span>Ежегодно <span class="discount">-20%</span></span>
+        </div>
+        <div class="pricing-cards">
+          <div class="pricing-card">
+            <div class="pricing-header">
+              <h3>Стартап</h3>
+              <div class="price">
+                <span class="amount monthly">₽5,000</span>
+                <span class="amount annual">₽4,000</span>
+                <span class="period">/мес</span>
+              </div>
+              <p>Идеально для малых команд до 10 человек</p>
+            </div>
+            <ul class="pricing-features">
+              <li><i class="fas fa-check"></i> Учет рабочего времени</li>
+              <li><i class="fas fa-check"></i> Базовое управление задачами</li>
+              <li><i class="fas fa-check"></i> Простая аналитика</li>
+              <li><i class="fas fa-check"></i> Email поддержка</li>
+              <li class="not-included">
+                <i class="fas fa-times"></i> Расширенная отчетность
+              </li>
+              <li class="not-included">
+                <i class="fas fa-times"></i> API интеграция
+              </li>
+            </ul>
+            <a href="#contact" class="btn btn-outline">Выбрать план</a>
+          </div>
+
+          <div class="pricing-card popular">
+            <div class="popular-badge">Популярный</div>
+            <div class="pricing-header">
+              <h3>Бизнес</h3>
+              <div class="price">
+                <span class="amount monthly">₽12,000</span>
+                <span class="amount annual">₽9,600</span>
+                <span class="period">/мес</span>
+              </div>
+              <p>Для растущих компаний до 50 сотрудников</p>
+            </div>
+            <ul class="pricing-features">
+              <li><i class="fas fa-check"></i> Все функции тарифа "Стартап"</li>
+              <li><i class="fas fa-check"></i> Расширенная аналитика</li>
+              <li><i class="fas fa-check"></i> Интеграция с CRM</li>
+              <li><i class="fas fa-check"></i> Приоритетная поддержка</li>
+              <li><i class="fas fa-check"></i> API интеграция</li>
+              <li class="not-included">
+                <i class="fas fa-times"></i> Персональный менеджер
+              </li>
+            </ul>
+            <a href="#contact" class="btn btn-primary">Выбрать план</a>
+          </div>
+
+          <div class="pricing-card">
+            <div class="pricing-header">
+              <h3>Корпоративный</h3>
+              <div class="price">
+                <span class="contact">Индивидуально</span>
+              </div>
+              <p>Для крупных компаний с особыми требованиями</p>
+            </div>
+            <ul class="pricing-features">
+              <li><i class="fas fa-check"></i> Все функции тарифа "Бизнес"</li>
+              <li>
+                <i class="fas fa-check"></i> Неограниченное количество
+                пользователей
+              </li>
+              <li><i class="fas fa-check"></i> Индивидуальная настройка</li>
+              <li><i class="fas fa-check"></i> Персональный менеджер</li>
+              <li><i class="fas fa-check"></i> Премиум поддержка 24/7</li>
+              <li><i class="fas fa-check"></i> Обучение сотрудников</li>
+            </ul>
+            <a href="#contact" class="btn btn-outline">Связаться с нами</a>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section id="testimonials" class="testimonials">
-        <div class="container">
-            <div class="section-header">
-                <h2>Отзывы наших клиентов</h2>
-                <p>Что говорят о нас те, кто уже использует StaffPro</p>
-            </div>
-            <div class="testimonials-slider">
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>"StaffPro полностью изменил наш подход к управлению персоналом. Сейчас мы тратим на 40% меньше времени на административные задачи и можем сосредоточиться на развитии бизнеса."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <img src="https://via.placeholder.com/60x60" alt="Анна Смирнова">
-                        <div class="author-info">
-                            <span class="author-name">Анна Смирнова</span>
-                            <span class="author-position">HR-директор, ООО "ТехноПром"</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>"Благодаря аналитике StaffPro мы смогли оптимизировать рабочие процессы и повысить продуктивность команды на 25%. Интуитивно понятный интерфейс позволил быстро внедрить систему."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <img src="https://via.placeholder.com/60x60" alt="Иван Петров">
-                        <div class="author-info">
-                            <span class="author-name">Иван Петров</span>
-                            <span class="author-position">Генеральный директор, "ИнноваСофт"</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>"Внедрение StaffPro окупилось уже через 3 месяца. Теперь у нас нет проблем с учетом рабочего времени, а сотрудники могут самостоятельно планировать отпуска и отгулы."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <img src="https://via.placeholder.com/60x60" alt="Мария Козлова">
-                        <div class="author-info">
-                            <span class="author-name">Мария Козлова</span>
-                            <span class="author-position">Финансовый директор, "МедиаГруп"</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-dots">
-                <span class="dot active"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-            </div>
+      <div class="container">
+        <div class="section-header">
+          <h2>Отзывы наших клиентов</h2>
+          <p>Что говорят о нас те, кто уже использует StaffPro</p>
         </div>
+        <div class="testimonials-slider">
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <p>
+                "StaffPro полностью изменил наш подход к управлению персоналом.
+                Сейчас мы тратим на 40% меньше времени на административные
+                задачи и можем сосредоточиться на развитии бизнеса."
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <img
+                src="https://via.placeholder.com/60x60"
+                alt="Анна Смирнова"
+              />
+              <div class="author-info">
+                <span class="author-name">Анна Смирнова</span>
+                <span class="author-position"
+                  >HR-директор, ООО "ТехноПром"</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <p>
+                "Благодаря аналитике StaffPro мы смогли оптимизировать рабочие
+                процессы и повысить продуктивность команды на 25%. Интуитивно
+                понятный интерфейс позволил быстро внедрить систему."
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <img src="https://via.placeholder.com/60x60" alt="Иван Петров" />
+              <div class="author-info">
+                <span class="author-name">Иван Петров</span>
+                <span class="author-position"
+                  >Генеральный директор, "ИнноваСофт"</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <p>
+                "Внедрение StaffPro окупилось уже через 3 месяца. Теперь у нас
+                нет проблем с учетом рабочего времени, а сотрудники могут
+                самостоятельно планировать отпуска и отгулы."
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <img
+                src="https://via.placeholder.com/60x60"
+                alt="Мария Козлова"
+              />
+              <div class="author-info">
+                <span class="author-name">Мария Козлова</span>
+                <span class="author-position"
+                  >Финансовый директор, "МедиаГруп"</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-dots">
+          <span class="dot active"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+      </div>
     </section>
 
     <section id="faq" class="faq">
-        <div class="container">
-            <div class="section-header">
-                <h2>Часто задаваемые вопросы</h2>
-                <p>Ответы на самые популярные вопросы о StaffPro</p>
-            </div>
-            <div class="faq-list">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Как быстро можно начать работу с StaffPro?</h3>
-                        <span class="icon"><i class="fas fa-chevron-down"></i></span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Базовое внедрение StaffPro занимает от 1 до 3 дней в зависимости от размера компании. Наши специалисты помогут настроить систему под ваши потребности и обучат сотрудников работе с платформой.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Можно ли интегрировать StaffPro с другими системами?</h3>
-                        <span class="icon"><i class="fas fa-chevron-down"></i></span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Да, StaffPro имеет открытый API и готовые коннекторы для интеграции с популярными CRM, ERP, бухгалтерскими системами и сервисами для совместной работы. Для специфических интеграций наша команда разработчиков готова предложить индивидуальное решение.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Как обеспечивается безопасность данных?</h3>
-                        <span class="icon"><i class="fas fa-chevron-down"></i></span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>StaffPro использует шифрование данных по стандарту AES-256, многофакторную аутентификацию и регулярное резервное копирование. Мы соответствуем требованиям GDPR и ФЗ-152 "О персональных данных". Наши сервера расположены в России и Европе с возможностью выбора локации хранения данных.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Можно ли использовать StaffPro на мобильных устройствах?</h3>
-                        <span class="icon"><i class="fas fa-chevron-down"></i></span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>StaffPro доступен на всех устройствах через адаптивный веб-интерфейс. Кроме того, у нас есть мобильные приложения для iOS и Android, которые позволяют отмечать приход/уход, управлять задачами и получать уведомления в режиме реального времени.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Что делать, если мне нужна помощь?</h3>
-                        <span class="icon"><i class="fas fa-chevron-down"></i></span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Мы предоставляем различные уровни поддержки в зависимости от выбранного тарифа — от email-поддержки до выделенного менеджера. Кроме того, на нашем сайте доступна подробная документация и обучающие материалы.</p>
-                    </div>
-                </div>
-            </div>
+      <div class="container">
+        <div class="section-header">
+          <h2>Часто задаваемые вопросы</h2>
+          <p>Ответы на самые популярные вопросы о StaffPro</p>
         </div>
+        <div class="faq-list">
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>Как быстро можно начать работу с StaffPro?</h3>
+              <span class="icon"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="faq-answer">
+              <p>
+                Базовое внедрение StaffPro занимает от 1 до 3 дней в зависимости
+                от размера компании. Наши специалисты помогут настроить систему
+                под ваши потребности и обучат сотрудников работе с платформой.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>Можно ли интегрировать StaffPro с другими системами?</h3>
+              <span class="icon"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="faq-answer">
+              <p>
+                Да, StaffPro имеет открытый API и готовые коннекторы для
+                интеграции с популярными CRM, ERP, бухгалтерскими системами и
+                сервисами для совместной работы. Для специфических интеграций
+                наша команда разработчиков готова предложить индивидуальное
+                решение.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>Как обеспечивается безопасность данных?</h3>
+              <span class="icon"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="faq-answer">
+              <p>
+                StaffPro использует шифрование данных по стандарту AES-256,
+                многофакторную аутентификацию и регулярное резервное
+                копирование. Мы соответствуем требованиям GDPR и ФЗ-152 "О
+                персональных данных". Наши сервера расположены в России и Европе
+                с возможностью выбора локации хранения данных.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>Можно ли использовать StaffPro на мобильных устройствах?</h3>
+              <span class="icon"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="faq-answer">
+              <p>
+                StaffPro доступен на всех устройствах через адаптивный
+                веб-интерфейс. Кроме того, у нас есть мобильные приложения для
+                iOS и Android, которые позволяют отмечать приход/уход, управлять
+                задачами и получать уведомления в режиме реального времени.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>Что делать, если мне нужна помощь?</h3>
+              <span class="icon"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="faq-answer">
+              <p>
+                Мы предоставляем различные уровни поддержки в зависимости от
+                выбранного тарифа — от email-поддержки до выделенного менеджера.
+                Кроме того, на нашем сайте доступна подробная документация и
+                обучающие материалы.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section id="contact" class="contact">
-        <div class="container">
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h2>Готовы начать?</h2>
-                    <p>Оставьте свои контактные данные, и наш специалист свяжется с вами в течение рабочего дня, чтобы помочь с выбором оптимального решения.</p>
-                    <div class="contact-methods">
-                        <div class="contact-method">
-                            <div class="icon"><i class="fas fa-phone"></i></div>
-                            <div class="method-info">
-                                <span class="method-title">Телефон</span>
-                                <span class="method-value">+7 (495) 123-45-67</span>
-                            </div>
-                        </div>
-                        <div class="contact-method">
-                            <div class="icon"><i class="fas fa-envelope"></i></div>
-                            <div class="method-info">
-                                <span class="method-title">Email</span>
-                                <span class="method-value">info@staffpro.ru</span>
-                            </div>
-                        </div>
-                        <div class="contact-method">
-                            <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
-                            <div class="method-info">
-                                <span class="method-title">Адрес</span>
-                                <span class="method-value">Москва, ул. Профсоюзная, 76</span>
-                            </div>
-                        </div>
-                    </div>
+      <div class="container">
+        <div class="contact-content">
+          <div class="contact-info">
+            <h2>Ready to begin?</h2>
+            <p>
+              Leave your contact information, and our specialist will contact
+              you during business hours to help you choose the optimal solution.
+            </p>
+            <div class="contact-methods">
+              <div class="contact-method">
+                <div class="icon"><i class="fas fa-phone"></i></div>
+                <div class="method-info">
+                  <span class="method-title">Phone</span>
+                  <span class="method-value">+1 (945) 267-93-79</span>
                 </div>
-                <div class="contact-form">
-                    <form id="demo-form">
-                        <div class="form-group">
-                            <label for="name">Ваше имя</label>
-                            <input type="text" id="name" placeholder="Иван Иванов" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="company">Компания</label>
-                            <input type="text" id="company" placeholder="ООО 'Компания'" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" placeholder="ivan@company.ru" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Телефон</label>
-                            <input type="tel" id="phone" placeholder="+7 (999) 123-45-67" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="employees">Количество сотрудников</label>
-                            <select id="employees" required>
-                                <option value="">Выберите...</option>
-                                <option value="1-10">1-10</option>
-                                <option value="11-50">11-50</option>
-                                <option value="51-200">51-200</option>
-                                <option value="201+">201+</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Комментарий (опционально)</label>
-                            <textarea id="message" placeholder="Расскажите о ваших потребностях..."></textarea>
-                        </div>
-                        <div class="form-group checkbox">
-                            <input type="checkbox" id="agreement" required>
-                            <label for="agreement">Я согласен на обработку персональных данных</label>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Отправить заявку</button>
-                    </form>
+              </div>
+              <div class="contact-method">
+                <div class="icon"><i class="fas fa-envelope"></i></div>
+                <div class="method-info">
+                  <span class="method-title">Email</span>
+                  <span class="method-value">dmitriy.palchykov@gmail.com</span>
                 </div>
+              </div>
+              <div class="contact-method">
+                <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+                <div class="method-info">
+                  <span class="method-title">Address</span>
+                  <span class="method-value">Texas, Dallas</span>
+                </div>
+              </div>
             </div>
+          </div>
+          <div class="contact-form">
+            <form id="demo-form" action="form/save_form.php" method="post">
+              <div class="form-group">
+                <label for="name">Your name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="John Smith"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="company">Company</label>
+                <input
+                  type="text"
+                  id="company"
+                  name="company"
+                  placeholder="ABC Company"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="john@company.com"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="+1 (999) 123-4567"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="employees">Number of employees</label>
+                <select id="employees" name="employees" required>
+                  <option value="">Select...</option>
+                  <option value="1-10">1-10</option>
+                  <option value="11-50">11-50</option>
+                  <option value="51-200">51-200</option>
+                  <option value="201+">201+</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="message">Comment (optional)</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="Tell us about your needs..."
+                ></textarea>
+              </div>
+              <div class="form-group checkbox">
+                <input
+                  type="checkbox"
+                  id="agreement"
+                  name="agreement"
+                  required
+                />
+                <label for="agreement"
+                  >I agree to the processing of personal data</label
+                >
+              </div>
+              <button type="submit" class="btn btn-primary">
+                Submit request
+              </button>
+            </form>
+            <div class="success-message" style="display: none"></div>
+            <div class="error-message" style="display: none"></div>
+          </div>
         </div>
+      </div>
     </section>
 
     <footer>
-        <div class="container">
-            <div class="footer-top">
-                <div class="footer-col">
-                    <div class="logo">
-                        <span>Staff<span class="accent">Pro</span></span>
-                    </div>
-                    <p>Современное решение для эффективного управления персоналом.</p>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                <div class="footer-col">
-                    <h3>Продукт</h3>
-                    <ul>
-                        <li><a href="#features">Возможности</a></li>
-                        <li><a href="#pricing">Цены</a></li>
-                        <li><a href="#demo">Демо</a></li>
-                        <li><a href="#">Обновления</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3>Компания</h3>
-                    <ul>
-                        <li><a href="#">О нас</a></li>
-                        <li><a href="#">Блог</a></li>
-                        <li><a href="#">Карьера</a></li>
-                        <li><a href="#contact">Контакты</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3>Поддержка</h3>
-                    <ul>
-                        <li><a href="#">Помощь</a></li>
-                        <li><a href="#">Документация</a></li>
-                        <li><a href="#">API</a></li>
-                        <li><a href="#">Статус сервиса</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3>Связаться с нами</h3>
-                    <p>Подпишитесь на рассылку новостей и обновлений</p>
-                    <form class="newsletter-form">
-                        <input type="email" placeholder="Ваш email">
-                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
-                    </form>
-                </div>
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-col">
+            <div class="logo">
+              <span>Staff<span class="accent">Pro</span></span>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2023 StaffPro. Все права защищены.</p>
-                <div class="footer-links">
-                    <a href="#">Политика конфиденциальности</a>
-                    <a href="#">Условия использования</a>
-                    <a href="#">Правовая информация</a>
-                </div>
+            <p>Modern solution for effective personnel management.</p>
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
             </div>
+          </div>
+          <div class="footer-col">
+            <h3>Product</h3>
+            <ul>
+              <li><a href="#features">Features</a></li>
+              <li><a href="#pricing">Pricing</a></li>
+              <li><a href="#demo">Demo</a></li>
+              <li><a href="#">Updates</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h3>Company</h3>
+            <ul>
+              <li><a href="#">About us</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#contact">Contacts</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h3>Support</h3>
+            <ul>
+              <li><a href="#">Help</a></li>
+              <li><a href="#">Documentation</a></li>
+              <li><a href="#">API</a></li>
+              <li><a href="#">Service Status</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h3>Contact Us</h3>
+            <p>Subscribe to our newsletter for news and updates</p>
+            <form class="newsletter-form">
+              <input type="email" placeholder="Your email" />
+              <button type="submit"><i class="fas fa-paper-plane"></i></button>
+            </form>
+          </div>
         </div>
+        <div class="footer-bottom">
+          <p>&copy; 2023 StaffPro. All rights reserved.</p>
+          <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+            <a href="#">Legal Information</a>
+            <a href="form/login.php" class="admin-link">Admin Panel</a>
+          </div>
+        </div>
+      </div>
     </footer>
 
     <script src="scripts.js"></script>
-</body>
+  </body>
 </html>
