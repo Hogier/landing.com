@@ -342,8 +342,9 @@ document.addEventListener("DOMContentLoaded", function () {
     heroSlides[currentHeroSlide].classList.add("active");
   };
 
+  let heroSlideInterval;
   if (heroSlides.length > 1) {
-    setInterval(changeHeroSlide, 5000);
+    heroSlideInterval = setInterval(changeHeroSlide, 5000);
   }
 
   // Слайдер для pad
@@ -362,8 +363,9 @@ document.addEventListener("DOMContentLoaded", function () {
     padSlides[currentPadSlide].classList.add("active");
   };
 
+  let padSlideInterval;
   if (padSlides.length > 1) {
-    setInterval(changePadSlide, 5000);
+    padSlideInterval = setInterval(changePadSlide, 5000);
   }
 
   // Слайдер для phone
@@ -382,7 +384,631 @@ document.addEventListener("DOMContentLoaded", function () {
     phoneSlides[currentPhoneSlide].classList.add("active");
   };
 
+  let phoneSlideInterval;
   if (phoneSlides.length > 1) {
-    setInterval(changePhoneSlide, 5000);
+    phoneSlideInterval = setInterval(changePhoneSlide, 5000);
   }
+
+  // Добавляем переменную для хранения таймера автовозобновления слайдеров
+  let autoResumeTimer = null;
+
+  // Создаем функцию для синхронного переключения слайдов во всех трех слайдерах
+  const syncChangeSlides = (direction) => {
+    // Останавливаем все интервалы
+    clearInterval(heroSlideInterval);
+    clearInterval(padSlideInterval);
+    clearInterval(phoneSlideInterval);
+    
+    // Очищаем существующий таймер, если он был установлен
+    if (autoResumeTimer) {
+      clearTimeout(autoResumeTimer);
+      autoResumeTimer = null;
+    }
+    
+    // Screen slider
+    heroSlides[currentHeroSlide].classList.remove('active');
+    if (direction === 'prev') {
+      currentHeroSlide = (currentHeroSlide - 1 + heroSlides.length) % heroSlides.length;
+    } else {
+      currentHeroSlide = (currentHeroSlide + 1) % heroSlides.length;
+    }
+    heroSlides[currentHeroSlide].classList.add('active');
+    
+    // Pad slider
+    padSlides[currentPadSlide].classList.remove('active');
+    if (direction === 'prev') {
+      currentPadSlide = (currentPadSlide - 1 + padSlides.length) % padSlides.length;
+    } else {
+      currentPadSlide = (currentPadSlide + 1) % padSlides.length;
+    }
+    padSlides[currentPadSlide].classList.add('active');
+    
+    // Phone slider
+    phoneSlides[currentPhoneSlide].classList.remove('active');
+    if (direction === 'prev') {
+      currentPhoneSlide = (currentPhoneSlide - 1 + phoneSlides.length) % phoneSlides.length;
+    } else {
+      currentPhoneSlide = (currentPhoneSlide + 1) % phoneSlides.length;
+    }
+    phoneSlides[currentPhoneSlide].classList.add('active');
+    
+    // Устанавливаем таймер на возобновление автоматической смены слайдов через 30 секунд
+    autoResumeTimer = setTimeout(() => {
+      // Проверяем, что ни один из слайдеров не находится в полноэкранном режиме
+      const allClosed = !screenSlider.classList.contains('fullscreen') && 
+                        !padSlider.classList.contains('fullscreen') && 
+                        !phoneSlider.classList.contains('fullscreen');
+      
+      // Возобновляем интервалы только если все слайдеры закрыты
+      if (allClosed) {
+        if (heroSlides.length > 1) {
+          heroSlideInterval = setInterval(changeHeroSlide, 5000);
+        }
+        if (padSlides.length > 1) {
+          padSlideInterval = setInterval(changePadSlide, 5000);
+        }
+        if (phoneSlides.length > 1) {
+          phoneSlideInterval = setInterval(changePhoneSlide, 5000);
+        }
+      }
+      
+      autoResumeTimer = null;
+    }, 30000); // 30 секунд
+  };
+
+  // Навигация по стрелкам для слайдеров
+  // Стрелки навигации для экрана
+  const screenPrevArrow = document.querySelector('.pre-screen .slider-arrow-prev');
+  const screenNextArrow = document.querySelector('.pre-screen .slider-arrow-next');
+  
+  if (screenPrevArrow && screenNextArrow && heroSlides.length > 1) {
+    screenPrevArrow.addEventListener('click', (e) => {
+      e.preventDefault();
+      syncChangeSlides('prev');
+    });
+    
+    screenNextArrow.addEventListener('click', (e) => {
+      e.preventDefault();
+      syncChangeSlides('next');
+    });
+  }
+  
+  // Стрелки навигации для планшета
+  const padPrevArrow = document.querySelector('.pre-pad .slider-arrow-prev');
+  const padNextArrow = document.querySelector('.pre-pad .slider-arrow-next');
+  
+  if (padPrevArrow && padNextArrow && padSlides.length > 1) {
+    padPrevArrow.addEventListener('click', (e) => {
+      e.preventDefault();
+      syncChangeSlides('prev');
+    });
+    
+    padNextArrow.addEventListener('click', (e) => {
+      e.preventDefault();
+      syncChangeSlides('next');
+    });
+  }
+  
+  // Стрелки навигации для телефона
+  const phonePrevArrow = document.querySelector('.pre-phone .slider-arrow-prev');
+  const phoneNextArrow = document.querySelector('.pre-phone .slider-arrow-next');
+  
+  if (phonePrevArrow && phoneNextArrow && phoneSlides.length > 1) {
+    phonePrevArrow.addEventListener('click', (e) => {
+      e.preventDefault();
+      syncChangeSlides('prev');
+    });
+    
+    phoneNextArrow.addEventListener('click', (e) => {
+      e.preventDefault();
+      syncChangeSlides('next');
+    });
+  }
+
+  // Добавляем функциональность полноэкранного режима для слайдеров
+  const overlay = document.querySelector('.fullscreen-overlay');
+  const preScreen = document.querySelector('.pre-screen');
+  const prePad = document.querySelector('.pre-pad');
+  const prePhone = document.querySelector('.pre-phone');
+  const screenSlider = document.querySelector('.screen-slider');
+  const padSlider = document.querySelector('.pad-slider');
+  const phoneSlider = document.querySelector('.phone-slider');
+
+  // Функция для центрирования слайдов внутри контейнеров в полноэкранном режиме
+  const centerSlides = () => {
+    // Центрирование экранных слайдов
+    const screenSlider = document.querySelector('.screen-slider');
+    const screenSlides = document.querySelectorAll('.screen-slide');
+    
+    if (screenSlider && screenSlides.length > 0 && screenSlider.classList.contains('fullscreen')) {
+      const sliderWidth = screenSlider.offsetWidth;
+      
+      screenSlides.forEach(slide => {
+        const slideWidth = slide.offsetWidth;
+        const leftPosition = (sliderWidth - slideWidth) / 2;
+        slide.style.left = `${leftPosition}px`;
+      });
+    }
+    
+    // Центрирование слайдов планшета
+    const padSlider = document.querySelector('.pad-slider');
+    const padSlides = document.querySelectorAll('.pad-slide');
+    
+    if (padSlider && padSlides.length > 0 && padSlider.classList.contains('fullscreen')) {
+      const sliderWidth = padSlider.offsetWidth;
+      
+      padSlides.forEach(slide => {
+        const slideWidth = slide.offsetWidth;
+        const leftPosition = (sliderWidth - slideWidth) / 2;
+        slide.style.left = `${leftPosition}px`;
+      });
+    }
+    
+    // Центрирование слайдов телефона
+    const phoneSlider = document.querySelector('.phone-slider');
+    const phoneSlides = document.querySelectorAll('.phone-slide');
+    
+    if (phoneSlider && phoneSlides.length > 0 && phoneSlider.classList.contains('fullscreen')) {
+      const sliderWidth = phoneSlider.offsetWidth;
+      
+      phoneSlides.forEach(slide => {
+        const slideWidth = slide.offsetWidth;
+        const leftPosition = (sliderWidth - slideWidth) / 2;
+        slide.style.left = `${leftPosition}px`;
+      });
+    }
+  };
+
+  // Функция для сброса позиционирования слайдов
+  const resetSlidesPosition = () => {
+    // Сброс экранных слайдов
+    const screenSlides = document.querySelectorAll('.screen-slide');
+    screenSlides.forEach(slide => {
+      slide.style.left = '';
+    });
+    
+    // Сброс слайдов планшета
+    const padSlides = document.querySelectorAll('.pad-slide');
+    padSlides.forEach(slide => {
+      slide.style.left = '';
+    });
+    
+    // Сброс слайдов телефона
+    const phoneSlides = document.querySelectorAll('.phone-slide');
+    phoneSlides.forEach(slide => {
+      slide.style.left = '';
+    });
+  };
+
+  // Добавляем обработчик изменения размеров окна только для полноэкранных слайдеров
+  window.addEventListener('resize', () => {
+    // Проверяем, есть ли слайдеры в полноэкранном режиме
+    const hasFullscreenSlider = 
+      document.querySelector('.screen-slider.fullscreen') || 
+      document.querySelector('.pad-slider.fullscreen') || 
+      document.querySelector('.phone-slider.fullscreen');
+    
+    // Вызываем центрирование только если есть полноэкранный слайдер
+    if (hasFullscreenSlider) {
+      centerSlides();
+    }
+  });
+
+  // Функция для открытия слайдера в полноэкранном режиме
+  const openFullscreenSlider = (slider) => {
+    // Запоминаем родителя и следующий элемент для последующего восстановления позиции
+    slider.dataset.parent = slider.parentNode.className;
+    
+    // Находим соответствующие стрелки в родительском контейнере слайдера
+    const parentContainer = slider.parentNode;
+    const prevArrow = parentContainer.querySelector('.slider-arrow-prev');
+    const nextArrow = parentContainer.querySelector('.slider-arrow-next');
+    
+    // Сохраняем информацию о родителе стрелок
+    if (prevArrow) prevArrow.dataset.parent = parentContainer.className;
+    if (nextArrow) nextArrow.dataset.parent = parentContainer.className;
+    
+    // Делаем overlay видимым и активным перед добавлением слайдера
+    overlay.classList.add('active');
+    
+    // Перемещаем слайдер внутрь overlay вместо body
+    overlay.appendChild(slider);
+    
+    // Перемещаем стрелки навигации на уровень overlay и добавляем класс fullscreen
+    if (prevArrow) {
+      overlay.appendChild(prevArrow);
+      prevArrow.classList.add('slider-arrow-fullscreen', 'fullscreen-ui-element');
+    }
+    
+    if (nextArrow) {
+      overlay.appendChild(nextArrow);
+      nextArrow.classList.add('slider-arrow-fullscreen', 'fullscreen-ui-element');
+    }
+    
+    // Создаем и добавляем кнопку закрытия (крестик)
+    const closeButton = document.createElement('button');
+    closeButton.classList.add('fullscreen-close-btn', 'fullscreen-ui-element');
+    closeButton.innerHTML = '&#10005;'; // HTML-код для символа крестика
+    closeButton.setAttribute('title', 'Закрыть');
+    
+    // Добавляем обработчик события клика на кнопку закрытия
+    closeButton.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeFullscreenSlider();
+    });
+    
+    // Создаем и добавляем кнопку увеличения (лупа)
+    const zoomButton = document.createElement('button');
+    zoomButton.classList.add('fullscreen-zoom-btn', 'fullscreen-ui-element');
+    zoomButton.setAttribute('title', 'Увеличить');
+    zoomButton.setAttribute('data-zoom-level', '1'); // Начальный уровень масштабирования
+
+    // Создаем элемент для иконки лупы
+    const zoomIcon = document.createElement('span');
+    zoomIcon.classList.add('zoom-icon');
+    zoomButton.appendChild(zoomIcon);
+
+    // Добавляем обработчик события клика на кнопку увеличения
+    zoomButton.addEventListener('click', (e) => {
+      e.stopPropagation();
+      
+      // Получаем текущий слайд
+      let currentSlide;
+      if (slider.classList.contains('screen-slider')) {
+        currentSlide = slider.querySelector('.screen-slide.active');
+      } else if (slider.classList.contains('pad-slider')) {
+        currentSlide = slider.querySelector('.pad-slide.active');
+      } else if (slider.classList.contains('phone-slider')) {
+        currentSlide = slider.querySelector('.phone-slide.active');
+      }
+      
+      if (!currentSlide) return;
+      
+      // Получаем изображение в текущем слайде
+      const img = currentSlide.querySelector('img');
+      if (!img) return;
+      
+      // Получаем и изменяем уровень масштабирования
+      let zoomLevel = parseFloat(zoomButton.getAttribute('data-zoom-level'));
+      
+      // Сначала удаляем все классы масштабирования
+      img.classList.remove('slide-img-zoomed', 'slide-img-zoomed-1-5', 'slide-img-zoomed-2');
+      
+      // Циклически меняем уровень масштабирования: 1 -> 1.5 -> 2 -> 1
+      if (zoomLevel === 1) {
+        zoomLevel = 1.5;
+        img.classList.add('slide-img-zoomed', 'slide-img-zoomed-1-5');
+      } else if (zoomLevel === 1.5) {
+        zoomLevel = 2;
+        img.classList.add('slide-img-zoomed', 'slide-img-zoomed-2');
+      } else {
+        zoomLevel = 1;
+      }
+      
+      // Обновляем атрибут
+      zoomButton.setAttribute('data-zoom-level', zoomLevel.toString());
+      
+      // Обновляем содержимое кнопки в зависимости от уровня масштабирования
+      if (zoomLevel === 1) {
+        // Очищаем содержимое и добавляем иконку лупы
+        zoomButton.innerHTML = '';
+        const newZoomIcon = document.createElement('span');
+        newZoomIcon.classList.add('zoom-icon');
+        zoomButton.appendChild(newZoomIcon);
+      } else {
+        // Показываем текстовое значение масштаба
+        zoomButton.innerHTML = `${zoomLevel}x`;
+      }
+    });
+    
+    // Создаем панель с миниатюрами устройств
+    const devicesPanel = document.createElement('div');
+    devicesPanel.classList.add('fullscreen-devices-panel');
+    
+    // Создаем и добавляем миниатюры устройств
+    const deviceTypes = [
+      { type: 'screen', src: 'images/screen.png', target: '.screen-slider' },
+      { type: 'pad', src: 'images/pad.png', target: '.pad-slider' },
+      { type: 'phone', src: 'images/phone.png', target: '.phone-slider' }
+    ];
+    
+    deviceTypes.forEach(device => {
+      const deviceIcon = document.createElement('img');
+      deviceIcon.src = device.src;
+      deviceIcon.classList.add('fullscreen-device-icon');
+      deviceIcon.setAttribute('data-target', device.target);
+      deviceIcon.setAttribute('title', `Показать ${device.type}`);
+      
+      // Если текущий слайдер соответствует этому устройству, делаем иконку активной
+      if (slider.classList.contains(`${device.type}-slider`)) {
+        deviceIcon.classList.add('active');
+      }
+      
+      // Добавляем обработчик клика для переключения между устройствами
+      deviceIcon.addEventListener('click', (e) => {
+        e.stopPropagation();
+        
+        // Получаем целевой слайдер
+        const targetSlider = document.querySelector(device.target);
+        if (!targetSlider || targetSlider === slider) return;
+        
+        // Закрываем текущий слайдер и открываем новый
+        closeFullscreenSlider();
+        
+        // Находим родительский контейнер целевого слайдера
+        const targetContainer = document.querySelector(`.pre-${device.type}`);
+        if (targetContainer) {
+          // Имитируем клик по контейнеру для открытия слайдера
+          setTimeout(() => {
+            openFullscreenSlider(targetSlider);
+          }, 100);
+        }
+      });
+      
+      devicesPanel.appendChild(deviceIcon);
+    });
+    
+    // Создаем блок для описания слайда (пока не используется)
+    const slideDescription = document.createElement('div');
+    slideDescription.classList.add('fullscreen-slide-description');
+    // В будущем здесь будет добавляться описание слайда
+
+    // Создаем контейнер для элементов управления и описания
+    const controlsContainer = document.createElement('div');
+    controlsContainer.classList.add('fullscreen-controls-container', 'fullscreen-ui-element');
+
+    // Добавляем панель и описание в контейнер
+    controlsContainer.appendChild(slideDescription);
+    controlsContainer.appendChild(devicesPanel);
+
+    // Добавляем кнопки и контейнер в overlay
+    overlay.appendChild(closeButton);
+    overlay.appendChild(zoomButton);
+    overlay.appendChild(controlsContainer);
+    
+    // Сохраняем ссылки на элементы интерфейса для последующего удаления
+    slider.dataset.closeButton = 'fullscreen-close-btn';
+    slider.dataset.zoomButton = 'fullscreen-zoom-btn';
+    slider.dataset.controlsContainer = 'fullscreen-controls-container';
+    
+    slider.classList.add('fullscreen');
+    
+    // Центрируем слайды после перехода в полноэкранный режим
+    setTimeout(centerSlides, 100); // Добавляем небольшую задержку для корректного расчета
+    
+    // Останавливаем автоматическую смену слайдов во ВСЕХ слайдерах при открытии полноэкранного режима
+    if (heroSlideInterval) {
+      clearInterval(heroSlideInterval);
+      heroSlideInterval = null;
+    }
+    
+    if (padSlideInterval) {
+      clearInterval(padSlideInterval);
+      padSlideInterval = null;
+    }
+    
+    if (phoneSlideInterval) {
+      clearInterval(phoneSlideInterval);
+      phoneSlideInterval = null;
+    }
+    
+    // Добавляем обработчики для автоматического скрытия/отображения элементов интерфейса
+    setupUserActivityTracking(overlay);
+  };
+
+  // Функция для настройки отслеживания активности пользователя
+  const setupUserActivityTracking = (overlay) => {
+    let inactivityTimer;
+    
+    // Функция для показа UI элементов
+    const showUI = () => {
+      overlay.classList.remove('inactive');
+    };
+    
+    // Функция для скрытия UI элементов
+    const hideUI = () => {
+      overlay.classList.add('inactive');
+    };
+    
+    // Функция для сброса таймера неактивности
+    const resetInactivityTimer = () => {
+      clearTimeout(inactivityTimer);
+      showUI();
+      inactivityTimer = setTimeout(hideUI, 2000); // 2 секунды неактивности
+    };
+    
+    // Обработчики событий для отслеживания активности пользователя
+    overlay.addEventListener('mousemove', resetInactivityTimer);
+    overlay.addEventListener('mousedown', resetInactivityTimer);
+    overlay.addEventListener('touchstart', resetInactivityTimer);
+    overlay.addEventListener('touchmove', resetInactivityTimer);
+    overlay.addEventListener('keydown', resetInactivityTimer);
+    
+    // Изначально запускаем таймер скрытия
+    resetInactivityTimer();
+    
+    // Сохраняем функцию для удаления обработчиков при закрытии
+    overlay.dataset.removeActivityTracking = 'true';
+  };
+
+  // Функция для удаления обработчиков отслеживания активности
+  const removeUserActivityTracking = (overlay) => {
+    if (overlay.dataset.removeActivityTracking === 'true') {
+      overlay.removeEventListener('mousemove', () => {});
+      overlay.removeEventListener('mousedown', () => {});
+      overlay.removeEventListener('touchstart', () => {});
+      overlay.removeEventListener('touchmove', () => {});
+      overlay.removeEventListener('keydown', () => {});
+      delete overlay.dataset.removeActivityTracking;
+    }
+  };
+
+  // Функция для закрытия полноэкранного режима
+  const closeFullscreenSlider = () => {
+    // Удаляем обработчики активности пользователя
+    removeUserActivityTracking(overlay);
+    
+    // Сбрасываем масштабирование изображений перед закрытием
+    const activeImages = document.querySelectorAll('.fullscreen .active img');
+    activeImages.forEach(img => {
+      img.classList.remove('slide-img-zoomed', 'slide-img-zoomed-1-5', 'slide-img-zoomed-2');
+    });
+    
+    // Удаляем кнопки закрытия, увеличения и контейнер с элементами управления
+    const closeButton = document.querySelector('.fullscreen-close-btn');
+    const zoomButton = document.querySelector('.fullscreen-zoom-btn');
+    const controlsContainer = document.querySelector('.fullscreen-controls-container');
+    
+    if (closeButton) closeButton.remove();
+    if (zoomButton) zoomButton.remove();
+    if (controlsContainer) controlsContainer.remove();
+    
+    // Сбрасываем позиционирование слайдов перед возвратом
+    resetSlidesPosition();
+    
+    // Возвращаем слайдеры и стрелки на их исходное место в DOM
+    if (screenSlider.classList.contains('fullscreen')) {
+      const parentClass = screenSlider.dataset.parent;
+      const parent = document.querySelector('.' + parentClass);
+      if (parent) {
+        // Возвращаем слайдер
+        parent.appendChild(screenSlider);
+        
+        // Ищем и возвращаем стрелки
+        const prevArrow = document.querySelector('.slider-arrow-prev[data-parent="' + parentClass + '"]');
+        const nextArrow = document.querySelector('.slider-arrow-next[data-parent="' + parentClass + '"]');
+        
+        if (prevArrow) {
+          parent.appendChild(prevArrow);
+          // Удаляем класс полноэкранного режима
+          prevArrow.classList.remove('slider-arrow-fullscreen');
+        }
+        
+        if (nextArrow) {
+          parent.appendChild(nextArrow);
+          // Удаляем класс полноэкранного режима
+          nextArrow.classList.remove('slider-arrow-fullscreen');
+        }
+      }
+      screenSlider.classList.remove('fullscreen');
+    }
+    
+    if (padSlider.classList.contains('fullscreen')) {
+      const parentClass = padSlider.dataset.parent;
+      const parent = document.querySelector('.' + parentClass);
+      if (parent) {
+        // Возвращаем слайдер
+        parent.appendChild(padSlider);
+        
+        // Ищем и возвращаем стрелки
+        const prevArrow = document.querySelector('.slider-arrow-prev[data-parent="' + parentClass + '"]');
+        const nextArrow = document.querySelector('.slider-arrow-next[data-parent="' + parentClass + '"]');
+        
+        if (prevArrow) {
+          parent.appendChild(prevArrow);
+          // Удаляем класс полноэкранного режима
+          prevArrow.classList.remove('slider-arrow-fullscreen');
+        }
+        
+        if (nextArrow) {
+          parent.appendChild(nextArrow);
+          // Удаляем класс полноэкранного режима
+          nextArrow.classList.remove('slider-arrow-fullscreen');
+        }
+      }
+      padSlider.classList.remove('fullscreen');
+    }
+    
+    if (phoneSlider.classList.contains('fullscreen')) {
+      const parentClass = phoneSlider.dataset.parent;
+      const parent = document.querySelector('.' + parentClass);
+      if (parent) {
+        // Возвращаем слайдер
+        parent.appendChild(phoneSlider);
+        
+        // Ищем и возвращаем стрелки
+        const prevArrow = document.querySelector('.slider-arrow-prev[data-parent="' + parentClass + '"]');
+        const nextArrow = document.querySelector('.slider-arrow-next[data-parent="' + parentClass + '"]');
+        
+        if (prevArrow) {
+          parent.appendChild(prevArrow);
+          // Удаляем класс полноэкранного режима
+          prevArrow.classList.remove('slider-arrow-fullscreen');
+        }
+        
+        if (nextArrow) {
+          parent.appendChild(nextArrow);
+          // Удаляем класс полноэкранного режима
+          nextArrow.classList.remove('slider-arrow-fullscreen');
+        }
+      }
+      phoneSlider.classList.remove('fullscreen');
+    }
+    
+    overlay.classList.remove('active');
+    
+    // Проверяем, что все слайдеры закрыты (не в полноэкранном режиме)
+    const allClosed = !screenSlider.classList.contains('fullscreen') && 
+                      !padSlider.classList.contains('fullscreen') && 
+                      !phoneSlider.classList.contains('fullscreen');
+    
+    // Возобновляем автоматическую смену слайдов только если все слайдеры закрыты
+    if (allClosed) {
+      if (heroSlides.length > 1 && !heroSlideInterval) {
+        heroSlideInterval = setInterval(changeHeroSlide, 5000);
+      }
+      if (padSlides.length > 1 && !padSlideInterval) {
+        padSlideInterval = setInterval(changePadSlide, 5000);
+      }
+      if (phoneSlides.length > 1 && !phoneSlideInterval) {
+        phoneSlideInterval = setInterval(changePhoneSlide, 5000);
+      }
+    }
+  };
+
+  // Добавляем обработчики событий
+  if (preScreen) {
+    preScreen.addEventListener('click', (e) => {
+      // Игнорируем клики на стрелки
+      if (e.target.classList.contains('slider-arrow')) return;
+      openFullscreenSlider(screenSlider);
+    });
+  }
+
+  if (prePad) {
+    prePad.addEventListener('click', (e) => {
+      // Игнорируем клики на стрелки
+      if (e.target.classList.contains('slider-arrow')) return;
+      openFullscreenSlider(padSlider);
+    });
+  }
+
+  if (prePhone) {
+    prePhone.addEventListener('click', (e) => {
+      // Игнорируем клики на стрелки
+      if (e.target.classList.contains('slider-arrow')) return;
+      openFullscreenSlider(phoneSlider);
+    });
+  }
+
+  // Закрытие при клике на затемнение
+  if (overlay) {
+    overlay.addEventListener('click', (e) => {
+      // Проверяем, что клик был именно по overlay, а не по его дочерним элементам
+      if (e.target === overlay) {
+        closeFullscreenSlider();
+      }
+    });
+  }
+
+  // Закрытие по клавише Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && (
+      screenSlider.classList.contains('fullscreen') || 
+      padSlider.classList.contains('fullscreen') || 
+      phoneSlider.classList.contains('fullscreen')
+    )) {
+      closeFullscreenSlider();
+    }
+  });
 });

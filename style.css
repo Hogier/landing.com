@@ -193,7 +193,7 @@ nav a:hover {
 
 /* ---------- Герой секция ---------- */
 .hero {
-  padding: 150px 0 80px;
+  padding: 125px 0 80px;
 }
 
 .hero .container {
@@ -1028,6 +1028,7 @@ body.annual .amount.annual {
 .pre-screen {
   position: relative;
   z-index: 100;
+  left: 2%;
 }
 
 .pre-screen img {
@@ -1038,7 +1039,7 @@ body.annual .amount.annual {
 .screen-slider {
   position: absolute;
   display: flex;
-  top: 2%;
+  top: 1%;
   left: 3%;
   width: 94%;
   height: calc(64%);
@@ -1071,9 +1072,9 @@ body.annual .amount.annual {
 .pre-pad {
   position: absolute;
   z-index: 100;
-  /* margin-top: 30px; */
-  top: 61%;
-  left: -16%;
+  margin-top: 30px;
+  top: 51%;
+  left: -3%;
   width: 63%;
 }
 
@@ -1086,9 +1087,9 @@ body.annual .amount.annual {
   position: absolute;
   display: flex;
   top: 2%;
-  left: 1%;
-  width: 98%;
-  height: 94%;
+  left: 2%;
+  width: 96%;
+  height: 93%;
   overflow: hidden;
   z-index: 99;
   border-radius: 14px;
@@ -1118,8 +1119,8 @@ body.annual .amount.annual {
 .pre-phone {
   position: absolute;
   z-index: 100;
-  top: 58%;
-  right: -2%;
+  top: 60%;
+  right: -3%;
   width: 23%;
 }
 
@@ -1131,13 +1132,13 @@ body.annual .amount.annual {
 .phone-slider {
   position: absolute;
   display: flex;
-  top: 1%;
+  top: 0.5%;
   left: 1%;
   width: 98%;
-  height: 98%;
+  height: 96%;
   overflow: hidden;
   z-index: 99;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 .phone-slide {
@@ -1159,4 +1160,374 @@ body.annual .amount.annual {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.pre-screen, .pre-pad, .pre-phone {
+  cursor: pointer;
+}
+
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background-color: rgb(189 189 189 / 70%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  z-index: 300;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border: none;
+  color: #fff;
+  font-weight: 900;
+}
+
+.slider-arrow-prev {
+  left: 10px;
+}
+
+.slider-arrow-next {
+  right: 10px;
+}
+
+.pre-screen .slider-arrow-prev {
+  top: 34%;
+  left: 30px;
+}
+
+.pre-screen .slider-arrow-next {
+  top: 34%;
+  right: 30px;
+}
+
+.pre-phone .slider-arrow-prev {
+  top: 45%;
+  left: 12px;
+}
+
+.pre-phone .slider-arrow-next {
+  top: 45%;
+  right: 12px;
+}
+
+.pre-screen:hover .slider-arrow,
+.pre-pad:hover .slider-arrow,
+.pre-phone:hover .slider-arrow {
+  opacity: 1;
+}
+
+.slider-arrow:hover {
+  /*background-color: rgba(255, 255, 255, 0.7);*/
+  color: #bdbdbd;
+}
+
+/* Стили для полноэкранного режима и затемняющего блока */
+.fullscreen-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1990;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.fullscreen-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.screen-slider.fullscreen,
+.pad-slider.fullscreen,
+.phone-slider.fullscreen {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  z-index: 2000;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  /* Гарантируем, что слайдеры будут поверх всех элементов */
+  isolation: isolate;
+}
+
+.phone-slider.fullscreen {
+  height: 100%;
+  width: 100%;
+}
+
+.pad-slider.fullscreen {
+  width: 100%;
+  height: 100%;
+}
+
+.screen-slider.fullscreen {
+  width: 100%;
+  height: 100%;
+}
+
+.pad-slider.fullscreen .pad-slide {
+  min-width: auto;
+}
+
+.phone-slider.fullscreen .phone-slide {
+  min-width: auto;
+}
+
+/* Стили для стрелок навигации в полноэкранном режиме */
+.slider-arrow-fullscreen {
+  opacity: 1;
+  z-index: 2001;
+  position: fixed;
+  top: 50%;
+  border-radius: 0;
+  height: 100%;
+  width: 7%;
+  font-size: 32px;
+  text-shadow: 0 0 12px rgb(0 0 0 / 54%);
+  background-color: rgb(0 0 0 / 0%);
+}
+
+.slider-arrow-prev.slider-arrow-fullscreen {
+  left: 0px;
+}
+
+.slider-arrow-next.slider-arrow-fullscreen {
+  right: 0px;
+}
+
+/* Стили для кнопки закрытия в полноэкранном режиме */
+.fullscreen-close-btn {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 2002;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  border-radius: 0;
+  width: 7%;
+  height: 12%;
+  font-size: 34px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-shadow: 0 0 10px #0000006b;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.fullscreen-close-btn:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Стили для кнопки увеличения в полноэкранном режиме */
+.fullscreen-zoom-btn {
+  position: fixed;
+  top: 0;
+  right: 7%;
+  z-index: 2002;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  border-radius: 0 0 0 50%;
+  width: 7%;
+  height: 12%;
+  font-size: 28px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.42);
+}
+
+/* Стилизованная лупа с помощью псевдоэлементов */
+.fullscreen-zoom-btn .zoom-icon {
+  position: relative;
+  width: 20px;
+  height: 20px;
+}
+
+.fullscreen-zoom-btn .zoom-icon:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 15px;
+  height: 15px;
+  border: 3px solid white;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.fullscreen-zoom-btn .zoom-icon:after {
+  content: "";
+  position: absolute;
+  top: 16px;
+  left: 22px;
+  width: 2px;
+  height: 15px;
+  background-color: white;
+  transform: rotate(-45deg);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Стилизация при разных уровнях масштабирования */
+.fullscreen-zoom-btn[data-zoom-level="1.5"] .zoom-icon,
+.fullscreen-zoom-btn[data-zoom-level="2"] .zoom-icon {
+  display: none; /* Скрываем иконку для отображения текста */
+}
+
+.fullscreen-close-btn {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 2002;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  border-radius: 0;
+  width: 7%;
+  height: 12%;
+  font-size: 34px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-shadow: 0 0 10px #0000006b;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.fullscreen-close-btn:hover,
+.fullscreen-zoom-btn:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Стили для увеличенных изображений */
+.slide-img-zoomed {
+  transition: transform 0.3s ease;
+}
+
+.slide-img-zoomed-1-5 {
+  transform: scale(1.5);
+}
+
+.slide-img-zoomed-2 {
+  transform: scale(2);
+}
+
+@media (max-width: 768px) {
+  .screen-slider.fullscreen,
+  .pad-slider.fullscreen {
+      width: 100%;
+      height: 100%;
+  }
+  
+  .phone-slider.fullscreen {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .phone-slider.fullscreen {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+/* Стили для блока с миниатюрами устройств в полноэкранном режиме */
+.fullscreen-devices-panel {
+  position: relative;
+  left: auto;
+  bottom: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 25px;
+  border-radius: 15px;
+}
+
+.fullscreen-device-icon {
+  width: 60px;
+  height: auto;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  filter: brightness(0) saturate(100%) invert(89%) sepia(0%) saturate(0%) hue-rotate(166deg) brightness(96%) contrast(95%);
+  opacity: 0.6;
+}
+
+.fullscreen-device-icon:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.fullscreen-device-icon.active {
+  opacity: 1;
+  filter: drop-shadow(0 0 0.3rem rgba(225, 225, 225, 0.3)) brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7034%) hue-rotate(255deg) brightness(106%) contrast(102%);
+  transform: scale(1.1);
+}
+
+/* Стили для контейнера в полноэкранном режиме, содержащего панель устройств и описание слайда */
+.fullscreen-controls-container {
+  position: fixed;
+  left: 50%;
+  bottom: 20px;
+  width: 84%;
+  transform: translateX(-50%);
+  z-index: 2002;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+/* Стили для блока с описанием слайда */
+.fullscreen-slide-description {
+  flex: 1;
+  max-width: 70%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border-radius: 15px;
+  padding: 25px;
+  margin-right: 20px;
+  display: none; /* Пока скрываем блок с описанием */
+}
+
+/* Общий класс для всех элементов интерфейса полноэкранного режима */
+.fullscreen-ui-element {
+  transition: opacity 0.3s ease;
+}
+
+/* Класс для скрытия элементов интерфейса при неактивности */
+.fullscreen-overlay.inactive .fullscreen-ui-element {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Включаем элементы интерфейса в группу с плавным скрытием */
+.slider-arrow-fullscreen,
+.fullscreen-close-btn,
+.fullscreen-zoom-btn,
+.fullscreen-controls-container {
+  transition: opacity 0.3s ease;
+}
+
+/* Стили для скрытия элементов при неактивности */
+.fullscreen-overlay.inactive .slider-arrow-fullscreen,
+.fullscreen-overlay.inactive .fullscreen-close-btn,
+.fullscreen-overlay.inactive .fullscreen-zoom-btn,
+.fullscreen-overlay.inactive .fullscreen-controls-container {
+  opacity: 0;
+  pointer-events: none;
 }
