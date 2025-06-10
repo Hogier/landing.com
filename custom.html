@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevCraft - Эксперт по автоматизации бизнеса</title>
+    <link rel="stylesheet" href="Custom-Project/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <span>Dev<span class="accent">Craft</span></span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#expertise">Экспертиза</a></li>
+                    <li><a href="#services">Услуги</a></li>
+                    <li><a href="#process">Подход</a></li>
+                    <li><a href="#cases">Кейсы</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                </ul>
+            </nav>
+            <div class="header-cta">
+                <a href="#contact" class="btn btn-primary">Обсудить задачу</a>
+                <a href="#consultation" class="btn btn-outline">Консультация</a>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Создаю IT решения, которые реально решают бизнес-задачи</h1>
+                <p>
+                    Глубоко изучаю ваши процессы и создаю системы, которые автоматизируют работу 
+                    и повышают эффективность. Не просто код — работающие инструменты для роста бизнеса.
+                </p>
+                <div class="hero-cta">
+                    <a href="#contact" class="btn btn-primary">Рассказать о задаче</a>
+                    <button class="btn btn-video" id="hero-demo-button">
+                        <i class="fas fa-play-circle"></i> Посмотреть примеры
+                    </button>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">100+</span>
+                        <span class="stat-text">Автоматизированных процессов</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">5+</span>
+                        <span class="stat-text">Лет экспертизы</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">85%</span>
+                        <span class="stat-text">Клиентов возвращаются</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="expertise-showcase">
+                    <div class="showcase-card active" data-area="automation">
+                        <h3>Автоматизация бизнеса</h3>
+                        <p>CRM, документооборот, учетные системы</p>
+                        <span class="focus">Рост эффективности на 40-70%</span>
+                    </div>
+                    <div class="showcase-card" data-area="integration">
+                        <h3>Интеграция систем</h3>
+                        <p>Связываю разрозненные процессы в единое целое</p>
+                        <span class="focus">Экономия времени сотрудников</span>
+                    </div>
+                    <div class="showcase-card" data-area="optimization">
+                        <h3>Оптимизация процессов</h3>
+                        <p>Анализ и улучшение существующих систем</p>
+                        <span class="focus">Снижение операционных затрат</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="expertise" id="expertise">
+        <div class="container">
+            <div class="section-header">
+                <h2>Моя экспертиза</h2>
+                <p>Сочетаю техническое мастерство с глубоким пониманием бизнес-процессов</p>
+            </div>
+            <div class="expertise-areas">
+                <div class="expertise-card">
+                    <div class="icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Анализ бизнес-процессов</h3>
+                    <p>Выявляю узкие места и возможности для автоматизации. Создаю техническое задание, которое учитывает все нюансы вашего бизнеса.</p>
+                </div>
+                <div class="expertise-card">
+                    <div class="icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Разработка решений</h3>
+                    <p>Использую современные технологии для создания надежных, масштабируемых систем. Каждое решение адаптировано под конкретные задачи.</p>
+                </div>
+                <div class="expertise-card">
+                    <div class="icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Интеграция и оптимизация</h3>
+                    <p>Интегрирую новые системы с существующими, оптимизирую производительность и обеспечиваю долгосрочную поддержку.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Направления работы</h2>
+                <p>Решаю задачи автоматизации для различных сфер бизнеса</p>
+            </div>
+            
+            <div class="services-categories">
+                <div class="category-nav">
+                    <button class="category-btn active" data-category="business">Управление бизнесом</button>
+                    <button class="category-btn" data-category="operations">Операционные процессы</button>
+                    <button class="category-btn" data-category="integration">Интеграции и расширения</button>
+                </div>
+
+                <div class="services-grid" id="business-services">
+                    <div class="service-card featured">
+                        <div class="service-header">
+                            <h3>CRM системы</h3>
+                            <span class="service-badge">Популярно</span>
+                        </div>
+                        <div class="service-description">
+                            <p>Система управления взаимоотношениями с клиентами, адаптированная под ваши процессы продаж.</p>
+                        </div>
+                        <div class="service-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Воронка продаж и аналитика</li>
+                                <li><i class="fas fa-check"></i> Автоматизация коммуникаций</li>
+                                <li><i class="fas fa-check"></i> Интеграция с мессенджерами</li>
+                                <li><i class="fas fa-check"></i> Отчеты и прогнозы</li>
+                            </ul>
+                        </div>
+                        <div class="service-cta">
+                            <a href="#contact" class="btn btn-primary">Заказать разработку</a>
+                            <a href="#consultation" class="btn btn-outline">Узнать больше</a>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-header">
+                            <h3>Система управления проектами</h3>
+                        </div>
+                        <div class="service-description">
+                            <p>Комплексное решение для планирования, контроля и отчетности по проектам.</p>
+                        </div>
+                        <div class="service-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Планирование задач и ресурсов</li>
+                                <li><i class="fas fa-check"></i> Командная коллаборация</li>
+                                <li><i class="fas fa-check"></i> Тайм-трекинг и учет времени</li>
+                                <li><i class="fas fa-check"></i> Финансовое планирование</li>
+                            </ul>
+                        </div>
+                        <div class="service-cta">
+                            <a href="#contact" class="btn btn-primary">Заказать разработку</a>
+                            <a href="#consultation" class="btn btn-outline">Узнать больше</a>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-header">
+                            <h3>Финансовый учет и отчетность</h3>
+                        </div>
+                        <div class="service-description">
+                            <p>Автоматизация финансовых процессов от учета операций до формирования отчетов.</p>
+                        </div>
+                        <div class="service-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Учет доходов и расходов</li>
+                                <li><i class="fas fa-check"></i> Автоматическая категоризация</li>
+                                <li><i class="fas fa-check"></i> Интеграция с банковскими API</li>
+                                <li><i class="fas fa-check"></i> Налоговая отчетность</li>
+                            </ul>
+                        </div>
+                        <div class="service-cta">
+                            <a href="#contact" class="btn btn-primary">Заказать разработку</a>
+                            <a href="#consultation" class="btn btn-outline">Узнать больше</a>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-header">
+                            <h3>HR и управление персоналом</h3>
+                        </div>
+                        <div class="service-description">
+                            <p>Системы для работы с кадрами: от рекрутинга до оценки эффективности.</p>
+                        </div>
+                        <div class="service-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Автоматизация найма</li>
+                                <li><i class="fas fa-check"></i> База кандидатов и сотрудников</li>
+                                <li><i class="fas fa-check"></i> Система оценки персонала</li>
+                                <li><i class="fas fa-check"></i> Планирование развития</li>
+                            </ul>
+                        </div>
+                        <div class="service-cta">
+                            <a href="#contact" class="btn btn-primary">Заказать разработку</a>
+                            <a href="#consultation" class="btn btn-outline">Узнать больше</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="services-grid hidden" id="operations-services">
+                    <div class="service-card">
+                        <div class="service-header">
+                            <h3>Системы бронирования и записи</h3>
+                        </div>
+                        <div class="service-description">
+                            <p>Онлайн платформы для записи клиентов и управления расписанием специалистов.</p>
+                        </div>
+                        <div class="service-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Онлайн календарь записи</li>
+                                <li><i class="fas fa-check"></i> Управление расписанием</li>
+                                <li><i class="fas fa-check"></i> Автоматические напоминания</li>
+                                <li><i class="fas fa-check"></i> Интеграция с оплатой</li>
+                            </ul>
+                        </div>
+                        <div class="service-cta">
+                            <a href="#contact" class="btn btn-primary">Заказать разработку</a>
+                            <a href="#consultation" class="btn btn-outline">Узнать больше</a>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-header">
+                            <h3>Документооборот и архивы</h3>
+                        </div>
+                        <div class="service-description">
+                            <p>Цифровизация документооборота с возможностями поиска, согласования и архивирования.</p>
+                        </div>
+                        <div class="service-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Электронные согласования</li>
+                                <li><i class="fas fa-check"></i> Система версионности</li>
+                                <li><i class="fas fa-check"></i> Полнотекстовый поиск</li>
+                                <li><i class="fas fa-check"></i> Интеграция с ЭЦП</li>
+                            </ul>
+                        </div>
+                        <div class="service-cta">
+                            <a href="#contact" class="btn btn-primary">Заказать разработку</a>
+                            <a href="#consultation" class="btn btn-outline">Узнать больше</a>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-header">
+                            <h3>Склад и логистика</h3>
+                        </div>
+                        <div class="service-description">
+                            <p>Автоматизация складских процессов и управления поставками.</p>
+                        </div>
+                        <div class="service-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Учет товарных остатков</li>
+                                <li><i class="fas fa-check"></i> Планирование закупок</li>
+                                <li><i class="fas fa-check"></i> Отслеживание поставок</li>
+                                <li><i class="fas fa-check"></i> Оптимизация маршрутов</li>
+                            </ul>
+                        </div>
+                        <div class="service-cta">
+                            <a href="#contact" class="btn btn-primary">Заказать разработку</a>
+                            <a href="#consultation" class="btn btn-outline">Узнать больше</a>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-header">
+                            <h3>Производственные системы</h3>
+                        </div>
+                        <div class="service-description">
+                            <p>Управление производственными процессами и контроль качества.</p>
+                        </div>
+                        <div class="service-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Планирование производства</li>
+                                <li><i class="fas fa-check"></i> Контроль качества</li>
+                                <li><i class="fas fa-check"></i> Учет материалов</li>
+                                <li><i class="fas fa-check"></i> Мониторинг оборудования</li>
+                            </ul>
+                        </div>
+                        <div class="service-cta">
+                            <a href="#contact" class="btn btn-primary">Заказать разработку</a>
+                            <a href="#consultation" class="btn btn-outline">Узнать больше</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="services-grid hidden" id="integration-services">
+                    <div class="service-card integration">
+                        <div class="service-header">
+                            <h3>AI и машинное обучение</h3>
+                            <span class="service-badge tech">Инновации</span>
+                        </div>
+                        <div class="service-description">
+                            <p>Интеграция возможностей искусственного интеллекта в ваши бизнес-процессы.</p>
+                        </div>
+                        <div class="service-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Чат-боты с обучением</li>
+                                <li><i class="fas fa-check"></i> Анализ данных и прогнозы</li>
+                                <li><i class="fas fa-check"></i> Автоматизация решений</li>
+                                <li><i class="fas fa-check"></i> Обработка естественного языка</li>
+                            </ul>
+                        </div>
+                        <div class="service-cta">
+                            <a href="#contact" class="btn btn-primary">Обсудить интеграцию</a>
+                        </div>
+                    </div>
+
+                    <div class="service-card integration">
+                        <div class="service-header">
+                            <h3>Мобильные приложения</h3>
+                            <span class="service-badge tech">Расширение</span>
+                        </div>
+                        <div class="service-description">
+                            <p>Мобильные версии ваших систем для работы в любом месте.</p>
+                        </div>
+                        <div class="service-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> iOS и Android приложения</li>
+                                <li><i class="fas fa-check"></i> Синхронизация с основной системой</li>
+                                <li><i class="fas fa-check"></i> Офлайн функциональность</li>
+                                <li><i class="fas fa-check"></i> Push-уведомления</li>
+                            </ul>
+                        </div>
+                        <div class="service-cta">
+                            <a href="#contact" class="btn btn-primary">Обсудить интеграцию</a>
+                        </div>
+                    </div>
+
+                    <div class="service-card integration">
+                        <div class="service-header">
+                            <h3>API и интеграции</h3>
+                            <span class="service-badge tech">Связывание</span>
+                        </div>
+                        <div class="service-description">
+                            <p>Связываю ваши системы с внешними сервисами и платформами.</p>
+                        </div>
+                        <div class="service-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Банковские API</li>
+                                <li><i class="fas fa-check"></i> Платежные системы</li>
+                                <li><i class="fas fa-check"></i> CRM и ERP интеграции</li>
+                                <li><i class="fas fa-check"></i> Социальные сети и мессенджеры</li>
+                            </ul>
+                        </div>
+                        <div class="service-cta">
+                            <a href="#contact" class="btn btn-primary">Обсудить интеграцию</a>
+                        </div>
+                    </div>
+
+                    <div class="service-card integration">
+                        <div class="service-header">
+                            <h3>Аналитика и отчетность</h3>
+                            <span class="service-badge tech">Данные</span>
+                        </div>
+                        <div class="service-description">
+                            <p>Превращаю ваши данные в понятные отчеты и инсайты для принятия решений.</p>
+                        </div>
+                        <div class="service-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Дашборды реального времени</li>
+                                <li><i class="fas fa-check"></i> Автоматизированные отчеты</li>
+                                <li><i class="fas fa-check"></i> KPI мониторинг</li>
+                                <li><i class="fas fa-check"></i> Прогнозная аналитика</li>
+                            </ul>
+                        </div>
+                        <div class="service-cta">
+                            <a href="#contact" class="btn btn-primary">Обсудить интеграцию</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="approach" id="process">
+        <div class="container">
+            <div class="section-header">
+                <h2>Мой подход к работе</h2>
+                <p>Методичность и внимание к деталям — основа качественного результата</p>
+            </div>
+            <div class="approach-steps">
+                <div class="approach-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Погружение в бизнес</h3>
+                        <p>Детально изучаю ваши процессы, общаюсь с командой, выявляю реальные потребности и возможности для улучшения</p>
+                        <span class="step-duration">1-2 недели</span>
+                    </div>
+                </div>
+                <div class="approach-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Архитектура решения</h3>
+                        <p>Проектирую техническое решение с учетом масштабируемости, безопасности и интеграции с существующими системами</p>
+                        <span class="step-duration">1-2 недели</span>
+                    </div>
+                </div>
+                <div class="approach-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Итеративная разработка</h3>
+                        <p>Создаю систему частями, постоянно получая обратную связь и корректируя решение под реальные потребности</p>
+                        <span class="step-duration">2-12 недель</span>
+                    </div>
+                </div>
+                <div class="approach-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Внедрение и обучение</h3>
+                        <p>Плавно внедряю систему в работу, обучаю команду, настраиваю процессы и обеспечиваю надежную работу</p>
+                        <span class="step-duration">2-4 недели</span>
+                    </div>
+                </div>
+                <div class="approach-step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Поддержка и развитие</h3>
+                        <p>Обеспечиваю техническую поддержку, собираю обратную связь и развиваю систему по мере роста бизнеса</p>
+                        <span class="step-duration">Долгосрочно</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="value-props">
+        <div class="container">
+            <div class="section-header">
+                <h2>Почему стоит работать со мной</h2>
+                <p>Сочетание технической экспертизы с пониманием бизнеса</p>
+            </div>
+            <div class="value-cards">
+                <div class="value-card">
+                    <div class="icon">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <h3>Глубокий анализ</h3>
+                    <p>Не просто программирую по ТЗ, а изучаю бизнес-процессы и предлагаю оптимальные решения для автоматизации.</p>
+                </div>
+                <div class="value-card">
+                    <div class="icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Надежность и качество</h3>
+                    <p>Создаю стабильные системы с продуманной архитектурой, которые работают без сбоев и легко развиваются.</p>
+                </div>
+                <div class="value-card">
+                    <div class="icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Долгосрочное партнерство</h3>
+                    <p>Поддерживаю долгосрочные отношения с клиентами, развивая их системы по мере роста бизнеса.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-middle">
+        <div class="container">
+            <h2>Есть задача по автоматизации?</h2>
+            <p>Расскажите о своих процессах — предложу решение и план реализации</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary">Обсудить задачу</a>
+                <a href="#consultation" class="btn btn-outline">Бесплатная консультация</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials" id="cases">
+        <div class="container">
+            <div class="section-header">
+                <h2>Что говорят клиенты</h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"DevCraft не просто создал CRM — он реорганизовал наши процессы продаж. 
+                        Теперь мы понимаем каждого клиента и конверсия выросла на 45%."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <div class="author-name">Алексей Петров</div>
+                            <div class="author-position">Генеральный директор, ООО "ТехСервис"</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Система бронирования окупилась за месяц. Клиенты в восторге от удобства, 
+                        а мы экономим 15 часов в неделю на администрировании."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <div class="author-name">Мария Иванова</div>
+                            <div class="author-position">Владелец сети салонов красоты</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Поразило внимание к деталям и понимание наших процессов. 
+                        Получили именно то, что нужно для роста эффективности."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <div class="author-name">Сергей Козлов</div>
+                            <div class="author-position">IT-директор, Строительная компания</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2>Обсудим вашу задачу</h2>
+                    <p>Расскажите о процессах, которые хотите автоматизировать, и я предложу оптимальное решение</p>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="icon">
+                                <i class="fab fa-telegram"></i>
+                            </div>
+                            <div class="method-content">
+                                <div class="method-title">Telegram</div>
+                                <div class="method-value">@devcraft_expert</div>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="method-content">
+                                <div class="method-title">Email</div>
+                                <div class="method-value">expert@devcraft.ru</div>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="method-content">
+                                <div class="method-title">Телефон</div>
+                                <div class="method-value">+7 (999) 123-45-67</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <form id="consultation" action="#" method="POST">
+                        <div class="form-group">
+                            <label for="name">Ваше имя *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Телефон</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="business-type">Сфера бизнеса</label>
+                            <select id="business-type" name="business-type">
+                                <option value="">Выберите сферу</option>
+                                <option value="retail">Розничная торговля</option>
+                                <option value="services">Услуги</option>
+                                <option value="manufacturing">Производство</option>
+                                <option value="construction">Строительство</option>
+                                <option value="healthcare">Медицина</option>
+                                <option value="education">Образование</option>
+                                <option value="finance">Финансы</option>
+                                <option value="other">Другое</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="automation-area">Что хотите автоматизировать?</label>
+                            <select id="automation-area" name="automation-area">
+                                <option value="">Выберите направление</option>
+                                <option value="crm">Работа с клиентами (CRM)</option>
+                                <option value="project-management">Управление проектами</option>
+                                <option value="finance">Финансовый учет</option>
+                                <option value="hr">HR процессы</option>
+                                <option value="booking">Запись и бронирование</option>
+                                <option value="documents">Документооборот</option>
+                                <option value="warehouse">Склад и логистика</option>
+                                <option value="production">Производство</option>
+                                <option value="integration">Интеграция систем</option>
+                                <option value="other">Другое</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Опишите текущие процессы и задачи</label>
+                            <textarea id="message" name="message" rows="4" 
+                                placeholder="Расскажите, как сейчас организованы процессы, какие есть проблемы и что хотели бы улучшить"></textarea>
+                        </div>
+                        <div class="form-group checkbox">
+                            <input type="checkbox" id="privacy" name="privacy" required>
+                            <label for="privacy">Согласен с обработкой персональных данных</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Отправить заявку</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-main">
+                    <div class="logo">
+                        <span>Dev<span class="accent">Craft</span></span>
+                    </div>
+                    <p>Эксперт по автоматизации бизнес-процессов и созданию надежных IT решений</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h3>Экспертиза</h3>
+                        <ul>
+                            <li><a href="#services">CRM системы</a></li>
+                            <li><a href="#services">Управление проектами</a></li>
+                            <li><a href="#services">Финансовый учет</a></li>
+                            <li><a href="#services">Автоматизация процессов</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h3>О работе</h3>
+                        <ul>
+                            <li><a href="#process">Подход к разработке</a></li>
+                            <li><a href="#cases">Примеры работ</a></li>
+                            <li><a href="#contact">Контакты</a></li>
+                            <li><a href="#consultation">Консультация</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h3>Связь</h3>
+                        <ul>
+                            <li><a href="tel:+79991234567">+7 (999) 123-45-67</a></li>
+                            <li><a href="mailto:expert@devcraft.ru">expert@devcraft.ru</a></li>
+                            <li><a href="https://t.me/devcraft_expert">@devcraft_expert</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 DevCraft. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="Custom-Project/script.js"></script>
+</body>
+</html>

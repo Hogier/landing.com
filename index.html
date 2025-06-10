@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>StaffPro - Smart Personnel Management</title>
+    <link rel="icon" type="image/png" href="images/icon_logo.png" />
     <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
@@ -14,20 +15,20 @@
     <header>
       <div class="container">
         <div class="logo">
-          <span>Staff<span class="accent">Pro</span></span>
+          <img src="images/logo3.png" alt="StaffPro" />
+          <!--<span>Staff<span class="accent">Pro</span></span>-->
         </div>
         <nav>
           <ul>
-            <li><a href="#features">Features</a></li>
+            <li><a href="#features">Сapabilities</a></li>
             <li><a href="#pricing">Pricing</a></li>
-            <li><a href="#testimonials">Testimonials</a></li>
             <li><a href="#faq">FAQ</a></li>
             <li><a href="#contact">Contacts</a></li>
           </ul>
         </nav>
         <div class="header-cta">
-          <a href="#demo" class="btn btn-secondary">Demo</a>
-          <a href="#contact" class="btn btn-primary">Start Free</a>
+          <a href="#contact" class="btn btn-primary">Try 30 Days Free</a>
+          <a href="custom.html" class="btn btn-primary">Create custom projects</a>
         </div>
         <div class="mobile-menu-btn">
           <i class="fas fa-bars"></i>
@@ -38,18 +39,25 @@
     <section class="hero">
       <div class="container">
         <div class="hero-content">
-          <h1>Effective Personnel Management Made Easy</h1>
+          <h1>Stop wasting your nerves on unorganized processes</h1>
           <p>
-            StaffPro is a modern solution for businesses of any size, helping to
-            automate HR processes and increase team productivity.
+            StaffPro brings order to business where previously there was chaos: clear tasks, smart resource planning and all documentation at hand. The result is visible from the first day.
           </p>
           <div class="hero-cta">
-            <a href="#contact" class="btn btn-primary">Try Free</a>
-            <a href="#demo" class="btn btn-video"
-              ><i class="fas fa-play-circle"></i> Watch Demo</a
+            <a href="#contact"  class="btn btn-primary">Try 30 Days Free</a>
+            <button class="btn btn-video" id="hero-demo-button"
+              ><i class="fas fa-play-circle"></i> Watch Demo</button
             >
           </div>
-          <div class="hero-stats">
+          <div class="custom-cta">
+            <p id="custom-cta-text">or</p>
+            <div class="custom-cta-btn">
+              <a href="custom.html" class="btn btn-primary">Create custom projects</a>
+            </div>
+          </div>
+
+
+          <!--<div class="hero-stats">
             <div class="stat">
               <span class="stat-number">500+</span>
               <span class="stat-text">Companies use</span>
@@ -62,7 +70,7 @@
               <span class="stat-number">24/7</span>
               <span class="stat-text">Technical Support</span>
             </div>
-          </div>
+          </div>-->
         </div>
         <div class="container-screenshots">
           <div class="pre-screen">
@@ -186,35 +194,37 @@
     <section class="problems">
       <div class="container">
         <div class="section-header">
-          <h2>Problems We Solve</h2>
-          <p>Personnel Management Shouldn't Be Complicated</p>
+          <h2 >Problems We Solve</h2>
+          <!--<p style="color: #2b2d42;">Personnel Management Shouldn't Be Complicated</p>-->
         </div>
         <div class="problem-cards">
           <div class="problem-card">
-            <div class="icon"><i class="fas fa-clock"></i></div>
-            <h3>Time Tracking</h3>
+            <h3>Clear Requests. Coordinated Teams.</h3>
             <p>
-              Difficulties with tracking worked hours and employee lateness.
+              The application prevents confusion in request submission and processing. Users can track task status, and with filtering, sorting, and assignment, the service department ensures tasks are completed efficiently.
             </p>
+            <div class="icon"><i class="fas fa-clipboard-check"></i></div>
           </div>
           <div class="problem-card">
-            <div class="icon"><i class="fas fa-tasks"></i></div>
-            <h3>Task Distribution</h3>
+            <h3>Problem-Free Event Management</h3>
             <p>
-              Lack of a transparent mechanism for task assignment and control.
+              The electronic corporate calendar completely eliminates double bookings and resource usage conflicts. The application automates all processes related to event organization.
             </p>
+            <div class="icon"><i class="fas fa-calendar-alt"></i></div>
           </div>
           <div class="problem-card">
-            <div class="icon"><i class="fas fa-users"></i></div>
-            <h3>Teamwork</h3>
+            <h3>Internal Document Flow in One Place</h3>
             <p>
-              Difficulties with coordination between departments and employees.
+              Seamlessly manage inspections, create detailed checklists, and monitor projects and supplies efficiently in a single, integrated application platform.
             </p>
+            <div class="icon"><i class="fas fa-file-alt"></i></div>
           </div>
           <div class="problem-card">
-            <div class="icon"><i class="fas fa-chart-line"></i></div>
-            <h3>Efficiency Analysis</h3>
-            <p>Lack of objective data about employee productivity.</p>
+            <h3>Corporate Communication Made Simple</h3>
+            <p>
+              Instead of using multiple communication channels, document exchange and storage systems, you can now use a chat that adapts to your needs.
+            </p>
+            <div class="icon"><i class="fas fa-comments"></i></div>
           </div>
         </div>
       </div>
@@ -223,106 +233,177 @@
     <section id="features" class="features">
       <div class="container">
         <div class="section-header">
-          <h2>StaffPro Features</h2>
-          <p>Complete Toolset for Managing Your Team</p>
+          <h2 id="features-header">Application capabilities</h2>
+        </div>
+        <div id="video-container" class="video-container">
+          <video id="video" class="video-features" src="video/11 Free Small Business Management Software in 2024.mp4" autoplay muted loop></video>
         </div>
         <div class="features-container">
           <div class="feature-block">
+
+            <img
+            src="images/icon/1. Submit Maintenance Request.png"
+          />
+
             <div class="feature-content">
-              <h3>Smart Time Tracking</h3>
+              <h3>Submitting maintenance requests</h3>
               <p>
-                Automated time tracking system with flexible schedule and remote
-                work capabilities. Integration with biometric systems and mobile
-                app for check-ins.
+                The portal provides a convenient interface for creating and submitting maintenance requests with automatic location binding.
               </p>
               <ul class="feature-list">
                 <li>
-                  <i class="fas fa-check"></i> Automatic hours calculation
+                  <i class="fas fa-check"></i> Multi-level prioritization - choose urgency level (low, medium, high, critical)
                 </li>
                 <li>
-                  <i class="fas fa-check"></i> Tracking lateness and overtime
+                  <i class="fas fa-check"></i> Multimedia attachments - attach photos, videos and audio files to requests
                 </li>
                 <li>
-                  <i class="fas fa-check"></i> Managing vacations and sick
-                  leaves
+                  <i class="fas fa-check"></i> Simple and fast - automatic form filling for registered users
                 </li>
-                <li><i class="fas fa-check"></i> Flexible schedule settings</li>
+                <li><i class="fas fa-check"></i> Track request execution progress in personal dashboard</li>
               </ul>
+              
             </div>
             <div class="feature-image">
-              <img
-                src="https://via.placeholder.com/500x300"
-                alt="Time Tracking"
-              />
+
+              <button class="btn btn-video reverse">
+                <i class="fas fa-play-circle"></i> More info in video
+              </button>
             </div>
           </div>
 
           <div class="feature-block reverse">
-            <div class="feature-image">
-              <img
-                src="https://via.placeholder.com/500x300"
-                alt="Task Management"
-              />
-            </div>
+
+            <img
+              src="images/icon/2. Maintenance Staff Portal.png"
+              alt="Task Management"
+            />
+
             <div class="feature-content">
-              <h3>Efficient Task Management</h3>
+              <h3>Maintenance Staff Portal</h3>
               <p>
-                Create, assign, and track tasks in a single interface. Setting
-                priorities, deadlines, and dependencies between tasks.
+                Comprehensive system for processing and executing maintenance requests by technical staff, designed to eliminate confusion in task execution and increase work efficiency.
               </p>
               <ul class="feature-list">
                 <li>
-                  <i class="fas fa-check"></i> Kanban boards for process
-                  visualization
+                  <i class="fas fa-check"></i> Advanced filtering - search and sort tasks by date, status, priority and assignee
                 </li>
                 <li>
-                  <i class="fas fa-check"></i> Automatic reminders about
-                  deadlines
+                  <i class="fas fa-check"></i> Real-time operation - receiving new requests, discussions and assignments are displayed instantly
                 </li>
-                <li><i class="fas fa-check"></i> Integration with calendars</li>
-                <li><i class="fas fa-check"></i> Task completion reports</li>
+                <li><i class="fas fa-check"></i> Material management - integrated system for ordering supplies and tools for request implementation</li>
+                <li><i class="fas fa-check"></i> Chat for discussing individual requests within the team</li>
               </ul>
+            </div>
+            <div class="feature-image">
+
+              <button class="btn btn-video in-reverse">
+                <i class="fas fa-play-circle"></i> More info in video
+              </button>
             </div>
           </div>
 
           <div class="feature-block">
+
+            <img
+              src="images/icon/3. Event Request Form.png"
+            />
+
             <div class="feature-content">
-              <h3>Analytics and Reporting</h3>
+              <h3>Event Portal</h3>
               <p>
-                Get detailed team and individual employee efficiency analysis.
-                Customizable dashboards and automatic report generation.
+                Convenient platform for event planning - integrated calendar helps avoid schedule conflicts and efficiently allocate resources.
               </p>
               <ul class="feature-list">
                 <li>
-                  <i class="fas fa-check"></i> Visualization of employee KPIs
+                  <i class="fas fa-check"></i> Interactive calendar with simple and intuitive interface
                 </li>
                 <li>
-                  <i class="fas fa-check"></i> Comparative analysis of
-                  productivity
+                  <i class="fas fa-check"></i> Organized down to details - event confirmation by administration, assignee appointment and more
                 </li>
-                <li><i class="fas fa-check"></i> Forecasting results</li>
+                <li><i class="fas fa-check"></i> Easy resource control: book rooms and manage logistics with just a few clicks</li>
                 <li>
-                  <i class="fas fa-check"></i> Export reports in various formats
+                  <i class="fas fa-check"></i> Possible integration with Outlook, Google Calendar, and others
                 </li>
               </ul>
             </div>
             <div class="feature-image">
-              <img
-                src="https://via.placeholder.com/500x300"
-                alt="Analytics and Reporting"
-              />
+
+              <button class="btn btn-video reverse">
+                <i class="fas fa-play-circle"></i> More info in video
+              </button>
             </div>
           </div>
+
+          <div class="feature-block reverse">
+
+            <img
+              src="images/icon/4. Inspections & Checklist.png"
+              alt="Task Management"
+            />
+
+            <div class="feature-content">
+              <h3>Inspections & Checklist</h3>
+              <p>
+                Portal for streamlining documentation of inspections, procurement and control over internal company processes.
+              </p>
+              <ul class="feature-list">
+                <li>
+                  <i class="fas fa-check"></i> Calendar of upcoming inspections and control activities
+                </li>
+                <li>
+                  <i class="fas fa-check"></i> Create custom checklists and templates for inspections
+                </li>
+                <li><i class="fas fa-check"></i> Planning and managing company projects</li>
+                <li><i class="fas fa-check"></i> Control of procurement and supplies</li>
+              </ul>
+            </div>
+            <div class="feature-image">
+
+              <button class="btn btn-video in-reverse">
+                <i class="fas fa-play-circle"></i> More info in video
+              </button>
+            </div>
+          </div>
+
+          <div class="feature-block">
+
+            <img
+              src="images/icon/5. Corporate Chat.png"
+            />
+
+            <div class="feature-content">
+              <h3>Corporate Chat</h3>
+              <p>
+                Internal messaging system for registered users with group communication capabilities and workflow integration.
+              </p>
+              <ul class="feature-list">
+                <li>
+                  <i class="fas fa-check"></i> Direct messages - personal communication between employees and document exchange
+                </li>
+                <li>
+                  <i class="fas fa-check"></i> Group chats - create thematic groups for discussing projects and tasks
+                </li>
+                <li><i class="fas fa-check"></i> Task integration - link messages with specific requests and projects</li>
+              </ul>
+            </div>
+            <div class="feature-image">
+
+              <button class="btn btn-video reverse">
+                <i class="fas fa-play-circle"></i> More info in video
+              </button>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
 
     <section class="cta-middle">
       <div class="container">
-        <h2>Don't Waste Time on Routine HR Tasks</h2>
+        <h2>See for yourself the effectiveness of StaffPro</h2>
         <p>
-          More than 500 companies have already automated personnel management
-          with StaffPro
+          Try all the system's features for 30 days for free. Free up your time for the tasks that really matter
         </p>
         <a href="#contact" class="btn btn-primary">Start Free</a>
       </div>
@@ -333,14 +414,6 @@
         <div class="section-header">
           <h2>Pricing Plans</h2>
           <p>Choose the optimal solution for your business</p>
-        </div>
-        <div class="pricing-toggle">
-          <!-- <span>Monthly</span>
-          <label class="switch">
-            <input type="checkbox" id="pricing-toggle" />
-            <span class="slider round"></span>
-          </label>
-          <span>Annually <span class="discount">-20%</span></span> -->
         </div>
         <div class="pricing-cards">
           <div class="pricing-card">
@@ -414,162 +487,69 @@
       </div>
     </section>
 
-    <section id="testimonials" class="testimonials">
-      <div class="container">
-        <div class="section-header">
-          <h2>Testimonials from Our Clients</h2>
-          <p>What our clients say about us</p>
-        </div>
-        <div class="testimonials-slider">
-          <div class="testimonial-card">
-            <div class="testimonial-content">
-              <p>
-                "StaffPro completely changed our approach to personnel
-                management. Now we spend 40% less time on administrative tasks
-                and can focus on business development."
-              </p>
-            </div>
-            <div class="testimonial-author">
-              <img
-                src="https://via.placeholder.com/60x60"
-                alt="Anna Smirnova"
-              />
-              <div class="author-info">
-                <span class="author-name">Anna Smirnova</span>
-                <span class="author-position"
-                  >HR Director, OOO "TechnoPro"</span
-                >
-              </div>
-            </div>
-          </div>
-
-          <div class="testimonial-card">
-            <div class="testimonial-content">
-              <p>
-                "Thanks to StaffPro analytics, we were able to optimize work
-                processes and increase team productivity by 25%. The intuitive
-                interface allowed us to quickly implement the system."
-              </p>
-            </div>
-            <div class="testimonial-author">
-              <img src="https://via.placeholder.com/60x60" alt="Ivan Petrov" />
-              <div class="author-info">
-                <span class="author-name">Ivan Petrov</span>
-                <span class="author-position"
-                  >General Director, "InnovationSoft"</span
-                >
-              </div>
-            </div>
-          </div>
-
-          <div class="testimonial-card">
-            <div class="testimonial-content">
-              <p>
-                "The implementation of StaffPro paid off in just 3 months. Now
-                we don't have problems with time tracking, and employees can
-                independently plan vacations and days off."
-              </p>
-            </div>
-            <div class="testimonial-author">
-              <img
-                src="https://via.placeholder.com/60x60"
-                alt="Maria Kozlova"
-              />
-              <div class="author-info">
-                <span class="author-name">Maria Kozlova</span>
-                <span class="author-position"
-                  >Finance Director, "MediaGroup"</span
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="testimonial-dots">
-          <span class="dot active"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
-        </div>
-      </div>
-    </section>
-
     <section id="faq" class="faq">
       <div class="container">
         <div class="section-header">
           <h2>Frequently Asked Questions</h2>
-          <p>Answers to the most popular questions about StaffPro</p>
+          <p>Answers to key questions about StaffPro</p>
         </div>
         <div class="faq-list">
           <div class="faq-item">
             <div class="faq-question">
-              <h3>How quickly can I start working with StaffPro?</h3>
+              <h3>What real time and cost savings can we expect from implementing StaffPro?</h3>
               <span class="icon"><i class="fas fa-chevron-down"></i></span>
             </div>
             <div class="faq-answer">
               <p>
-                Basic StaffPro implementation takes from 1 to 3 days depending
-                on the company size. Our specialists will help you configure the
-                system and train employees to work with the platform.
+                On average, companies save up to 20 hours per week on administrative tasks and request processing. Thanks to process automation, businesses can reduce costs by 15–25% within the first few months of using StaffPro. We will help you calculate your company’s potential savings during a free consultation.
               </p>
             </div>
           </div>
 
           <div class="faq-item">
             <div class="faq-question">
-              <h3>Can StaffPro be integrated with other systems?</h3>
+              <h3>How complex and lengthy is the StaffPro implementation process?</h3>
               <span class="icon"><i class="fas fa-chevron-down"></i></span>
             </div>
             <div class="faq-answer">
               <p>
-                Yes, StaffPro has an open API and ready connectors for
-                integration with popular CRM, ERP, accounting systems and
-                collaboration services. For specific integrations, our
-                development team is ready to offer a custom solution.
+                Standard implementation takes 3 to 6 business days and includes system setup, data import, and staff training. Our specialist will guide you through every stage of the process. We do everything to ensure the transition is as smooth and fast as possible.
               </p>
             </div>
           </div>
 
           <div class="faq-item">
             <div class="faq-question">
-              <h3>How is data security ensured?</h3>
+              <h3>How long does it take for employees to learn how to use StaffPro?</h3>
               <span class="icon"><i class="fas fa-chevron-down"></i></span>
             </div>
             <div class="faq-answer">
               <p>
-                StaffPro uses data encryption according to the AES-256 standard,
-                multi-factor authentication and regular backup. We comply with
-                GDPR and the Federal Law No. 152 "On Personal Data". Our servers
-                are located in Russia and Europe with the option to choose data
-                storage location.
+                Basic features require just 1–2 hours of training. For advanced capabilities, a single day of training is sufficient. 95% of users start working efficiently within the first week. We provide video tutorials, webinars, and one-on-one consultations.
               </p>
             </div>
           </div>
 
           <div class="faq-item">
             <div class="faq-question">
-              <h3>Can StaffPro be used on mobile devices?</h3>
+              <h3>What does technical support include and how quickly are issues resolved?</h3>
               <span class="icon"><i class="fas fa-chevron-down"></i></span>
             </div>
             <div class="faq-answer">
               <p>
-                StaffPro is available on all devices through an adaptive web
-                interface. In addition, we have mobile apps for iOS and Android
-                that allow you to mark entry/exit, manage tasks and receive
-                notifications in real time.
+                The basic plan includes email support with a response time of up to 24 hours. The business plan offers priority support and phone consultations. The corporate plan guarantees a response within 1 hour. We ensure uninterrupted service and prompt resolution of any issues.
               </p>
             </div>
           </div>
 
           <div class="faq-item">
             <div class="faq-question">
-              <h3>What to do if I need help?</h3>
+              <h3>Are there any additional costs beyond the plan price?</h3>
               <span class="icon"><i class="fas fa-chevron-down"></i></span>
             </div>
             <div class="faq-answer">
               <p>
-                We provide different levels of support depending on the selected
-                tariff — from email support to a dedicated manager. In addition,
-                there is detailed documentation and training materials on our
-                website.
+                The plan price includes not only the core product, but also setup, basic training, and technical support. Additional costs may only arise if you request custom modifications, extended training, or integrations with non-standard systems. All terms and prices are transparent and discussed in advance.
               </p>
             </div>
           </div>
@@ -694,69 +674,18 @@
 
     <footer>
       <div class="container">
-        <div class="footer-top">
-          <div class="footer-col">
-            <div class="logo">
-              <span>Staff<span class="accent">Pro</span></span>
-            </div>
-            <p>Modern solution for effective personnel management.</p>
-            <div class="social-icons">
-              <a href="#"><i class="fab fa-facebook-f"></i></a>
-              <a href="#"><i class="fab fa-twitter"></i></a>
-              <a href="#"><i class="fab fa-linkedin-in"></i></a>
-              <a href="#"><i class="fab fa-instagram"></i></a>
-            </div>
-          </div>
-          <div class="footer-col">
-            <h3>Product</h3>
-            <ul>
-              <li><a href="#features">Features</a></li>
-              <li><a href="#pricing">Pricing</a></li>
-              <li><a href="#demo">Demo</a></li>
-              <li><a href="#">Updates</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h3>Company</h3>
-            <ul>
-              <li><a href="#">About us</a></li>
-              <li><a href="#">Blog</a></li>
-              <li><a href="#">Careers</a></li>
-              <li><a href="#contact">Contacts</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h3>Support</h3>
-            <ul>
-              <li><a href="#">Help</a></li>
-              <li><a href="#">Documentation</a></li>
-              <li><a href="#">API</a></li>
-              <li><a href="#">Service Status</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h3>Contact Us</h3>
-            <p>Subscribe to our newsletter for news and updates</p>
-            <form class="newsletter-form">
-              <input type="email" placeholder="Your email" />
-              <button type="submit"><i class="fas fa-paper-plane"></i></button>
-            </form>
-          </div>
-        </div>
         <div class="footer-bottom">
-          <p>&copy; 2023 StaffPro. All rights reserved.</p>
-          <div class="footer-links">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Use</a>
-            <a href="#">Legal Information</a>
-            <a href="form/login.php" class="admin-link">Admin Panel</a>
-          </div>
+          <p style="margin-bottom: 0px;">&copy; 2023 StaffPro. All rights reserved.</p>
+
+            <!--<a href="form/login.php" class="admin-link">Admin Panel</a>-->
+
         </div>
       </div>
     </footer>
 
     <div class="fullscreen-overlay"></div>
 
+    <script src="video-player.js"></script>
     <script src="scripts.js"></script>
   </body>
 </html>

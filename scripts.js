@@ -11,19 +11,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Переключатель цен (месячные/годовые)
-  const pricingToggle = document.getElementById("pricing-toggle");
-
-  if (pricingToggle) {
-    pricingToggle.addEventListener("change", function () {
-      document.body.classList.toggle("annual");
-    });
-  }
-
   // Анимация при скролле
   const animateOnScroll = function () {
     const elements = document.querySelectorAll(
-      ".problem-card, .feature-block, .pricing-card, .testimonial-card"
+      ".problem-card, .feature-block, .pricing-card"
     );
 
     elements.forEach((element) => {
@@ -61,53 +52,6 @@ document.addEventListener("DOMContentLoaded", function () {
   // Автоматически открываем первый FAQ элемент
   if (faqItems.length > 0) {
     faqItems[0].classList.add("active");
-  }
-
-  // Слайдер отзывов
-  const testimonialDots = document.querySelectorAll(".testimonial-dots .dot");
-  const testimonialSlider = document.querySelector(".testimonials-slider");
-
-  if (testimonialDots.length > 0 && testimonialSlider) {
-    testimonialDots.forEach((dot, index) => {
-      dot.addEventListener("click", function () {
-        // Удаляем активный класс у всех точек
-        testimonialDots.forEach((d) => d.classList.remove("active"));
-
-        // Делаем текущую точку активной
-        this.classList.add("active");
-
-        // Прокручиваем слайдер
-        const testimonialCards = document.querySelectorAll(".testimonial-card");
-        if (testimonialCards.length > 0) {
-          const cardWidth = testimonialCards[0].offsetWidth + 30; // 30px это gap между карточками
-          testimonialSlider.scrollTo({
-            left: cardWidth * index,
-            behavior: "smooth",
-          });
-        }
-      });
-    });
-
-    // Автоматическое переключение слайдов
-    let currentSlide = 0;
-
-    const autoSlide = function () {
-      currentSlide = (currentSlide + 1) % testimonialDots.length;
-      testimonialDots[currentSlide].click();
-    };
-
-    // Запускаем автоматическое переключение каждые 5 секунд
-    let slideInterval = setInterval(autoSlide, 5000);
-
-    // Останавливаем автоматическое переключение при наведении мыши на слайдер
-    testimonialSlider.addEventListener("mouseenter", function () {
-      clearInterval(slideInterval);
-    });
-
-    // Возобновляем автоматическое переключение при уходе мыши
-    testimonialSlider.addEventListener("mouseleave", function () {
-      slideInterval = setInterval(autoSlide, 5000);
-    });
   }
 
   // Плавная прокрутка для якорных ссылок
@@ -152,7 +96,6 @@ document.addEventListener("DOMContentLoaded", function () {
       formData.forEach((value, key) => {
         formDataObj[key] = value;
       });
-      console.log("Form submission:", formDataObj);
 
       // Показываем сообщение об отправке
       const formElements = demoForm.elements;
@@ -167,8 +110,6 @@ document.addEventListener("DOMContentLoaded", function () {
       })
         .then((response) => response.json())
         .then((data) => {
-          console.log("Server response:", data);
-
           // Элементы для сообщений
           const successMessage = document.querySelector(".success-message");
           const errorMessage = document.querySelector(".error-message");
@@ -343,9 +284,31 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   let heroSlideInterval;
-  if (heroSlides.length > 1) {
-    heroSlideInterval = setInterval(changeHeroSlide, 5000);
-  }
+  let heroFirstSlideTimeout;
+  
+  const startHeroSlider = () => {
+    if (heroSlides.length > 1) {
+      // Первый переход через 5750 мс
+      heroFirstSlideTimeout = setTimeout(() => {
+        changeHeroSlide();
+        // Затем устанавливаем интервал 8200 мс для последующих переходов
+        heroSlideInterval = setInterval(changeHeroSlide, 8200);
+      }, 5750);
+    }
+  };
+  
+  const stopHeroSlider = () => {
+    if (heroFirstSlideTimeout) {
+      clearTimeout(heroFirstSlideTimeout);
+      heroFirstSlideTimeout = null;
+    }
+    if (heroSlideInterval) {
+      clearInterval(heroSlideInterval);
+      heroSlideInterval = null;
+    }
+  };
+  
+  startHeroSlider();
 
   // Слайдер для pad
   const padSlides = document.querySelectorAll(
@@ -364,9 +327,31 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   let padSlideInterval;
-  if (padSlides.length > 1) {
-    padSlideInterval = setInterval(changePadSlide, 5000);
-  }
+  let padFirstSlideTimeout;
+  
+  const startPadSlider = () => {
+    if (padSlides.length > 1) {
+      // Первый переход через 5750 мс
+      padFirstSlideTimeout = setTimeout(() => {
+        changePadSlide();
+        // Затем устанавливаем интервал 8200 мс для последующих переходов
+        padSlideInterval = setInterval(changePadSlide, 8200);
+      }, 5750);
+    }
+  };
+  
+  const stopPadSlider = () => {
+    if (padFirstSlideTimeout) {
+      clearTimeout(padFirstSlideTimeout);
+      padFirstSlideTimeout = null;
+    }
+    if (padSlideInterval) {
+      clearInterval(padSlideInterval);
+      padSlideInterval = null;
+    }
+  };
+  
+  startPadSlider();
 
   // Слайдер для phone
   const phoneSlides = document.querySelectorAll(
@@ -385,24 +370,77 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   let phoneSlideInterval;
-  if (phoneSlides.length > 1) {
-    phoneSlideInterval = setInterval(changePhoneSlide, 5000);
-  }
+  let phoneFirstSlideTimeout;
+  
+  const startPhoneSlider = () => {
+    if (phoneSlides.length > 1) {
+      // Первый переход через 5750 мс
+      phoneFirstSlideTimeout = setTimeout(() => {
+        changePhoneSlide();
+        // Затем устанавливаем интервал 8200 мс для последующих переходов
+        phoneSlideInterval = setInterval(changePhoneSlide, 8200);
+      }, 5750);
+    }
+  };
+  
+  const stopPhoneSlider = () => {
+    if (phoneFirstSlideTimeout) {
+      clearTimeout(phoneFirstSlideTimeout);
+      phoneFirstSlideTimeout = null;
+    }
+    if (phoneSlideInterval) {
+      clearInterval(phoneSlideInterval);
+      phoneSlideInterval = null;
+    }
+  };
+  
+  startPhoneSlider();
 
   // Добавляем переменную для хранения таймера автовозобновления слайдеров
   let autoResumeTimer = null;
 
   // Создаем функцию для синхронного переключения слайдов во всех трех слайдерах
   const syncChangeSlides = (direction) => {
-    // Останавливаем все интервалы
-    clearInterval(heroSlideInterval);
-    clearInterval(padSlideInterval);
-    clearInterval(phoneSlideInterval);
+    // Останавливаем все интервалы и таймауты
+    stopHeroSlider();
+    stopPadSlider();
+    stopPhoneSlider();
     
     // Очищаем существующий таймер, если он был установлен
     if (autoResumeTimer) {
       clearTimeout(autoResumeTimer);
       autoResumeTimer = null;
+    }
+    
+    // Сбрасываем позицию и масштаб изображений в полноэкранном режиме при смене слайдов
+    const fullscreenImages = document.querySelectorAll('.fullscreen img');
+    
+    fullscreenImages.forEach((img, index) => {
+      img.style.top = '0px';
+      img.style.left = '0px';
+      img.classList.remove('slide-img-zoomed', 'slide-img-zoomed-1-5', 'slide-img-zoomed-2');
+      
+      // Удаляем обработчики перемещения
+      if (img._dragStart) {
+        img.removeEventListener('mousedown', img._dragStart);
+        img.removeEventListener('touchstart', img._dragStart);
+        delete img._dragStart;
+      }
+      // Удаляем обработчик двойного клика
+      if (img._handleClick) {
+        img.removeEventListener('click', img._handleClick);
+        delete img._handleClick;
+      }
+    });
+    
+    // Сбрасываем уровень масштабирования кнопки увеличения
+    const zoomButton = document.querySelector('.fullscreen-zoom-btn');
+    if (zoomButton) {
+      zoomButton.setAttribute('data-zoom-level', '1');
+      zoomButton.innerHTML = '';
+      const newZoomIcon = document.createElement('span');
+      newZoomIcon.classList.add('zoom-icon');
+      zoomButton.appendChild(newZoomIcon);
     }
     
     // Screen slider
@@ -441,15 +479,9 @@ document.addEventListener("DOMContentLoaded", function () {
       
       // Возобновляем интервалы только если все слайдеры закрыты
       if (allClosed) {
-        if (heroSlides.length > 1) {
-          heroSlideInterval = setInterval(changeHeroSlide, 5000);
-        }
-        if (padSlides.length > 1) {
-          padSlideInterval = setInterval(changePadSlide, 5000);
-        }
-        if (phoneSlides.length > 1) {
-          phoneSlideInterval = setInterval(changePhoneSlide, 5000);
-        }
+        startHeroSlider();
+        startPadSlider();
+        startPhoneSlider();
       }
       
       autoResumeTimer = null;
@@ -650,8 +682,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Добавляем обработчик события клика на кнопку увеличения
     zoomButton.addEventListener('click', (e) => {
-      e.stopPropagation();
-      
       // Получаем текущий слайд
       let currentSlide;
       if (slider.classList.contains('screen-slider')) {
@@ -662,19 +692,35 @@ document.addEventListener("DOMContentLoaded", function () {
         currentSlide = slider.querySelector('.phone-slide.active');
       }
       
-      if (!currentSlide) return;
+      if (!currentSlide) {
+        return;
+      }
       
       // Получаем изображение в текущем слайде
       const img = currentSlide.querySelector('img');
-      if (!img) return;
+      
+      if (!img) {
+        return;
+      }
       
       // Получаем и изменяем уровень масштабирования
       let zoomLevel = parseFloat(zoomButton.getAttribute('data-zoom-level'));
       
       // Сначала удаляем все классы масштабирования
+      const oldClasses = img.className;
       img.classList.remove('slide-img-zoomed', 'slide-img-zoomed-1-5', 'slide-img-zoomed-2');
       
+      console.log('Removed zoom classes. Old classes:', oldClasses, 'New classes:', img.className);
+      
+      // Сбрасываем позицию изображения при изменении масштаба
+      const oldLeft = img.style.left;
+      const oldTop = img.style.top;
+      img.style.top = '0px';
+      img.style.left = '0px';
+      console.log('Reset position from', { oldLeft, oldTop }, 'to', { left: img.style.left, top: img.style.top });
+      
       // Циклически меняем уровень масштабирования: 1 -> 1.5 -> 2 -> 1
+      const oldZoomLevel = zoomLevel;
       if (zoomLevel === 1) {
         zoomLevel = 1.5;
         img.classList.add('slide-img-zoomed', 'slide-img-zoomed-1-5');
@@ -685,8 +731,12 @@ document.addEventListener("DOMContentLoaded", function () {
         zoomLevel = 1;
       }
       
+      console.log('Zoom level changed from', oldZoomLevel, 'to', zoomLevel);
+      console.log('New image classes:', img.className);
+      
       // Обновляем атрибут
       zoomButton.setAttribute('data-zoom-level', zoomLevel.toString());
+      console.log('Updated zoom button data-zoom-level to:', zoomLevel);
       
       // Обновляем содержимое кнопки в зависимости от уровня масштабирования
       if (zoomLevel === 1) {
@@ -695,11 +745,289 @@ document.addEventListener("DOMContentLoaded", function () {
         const newZoomIcon = document.createElement('span');
         newZoomIcon.classList.add('zoom-icon');
         zoomButton.appendChild(newZoomIcon);
+        console.log('Reset zoom button to icon');
       } else {
         // Показываем текстовое значение масштаба
         zoomButton.innerHTML = `${zoomLevel}x`;
+        console.log('Set zoom button text to:', `${zoomLevel}x`);
       }
+      
+      // Настраиваем перемещение изображения если оно увеличено
+      const isDraggingEnabled = zoomLevel > 1;
+      console.log('Setting up image dragging. Enabled:', isDraggingEnabled);
+      setupImageDragging(img, isDraggingEnabled);
+      
+      // Отладочная информация
+      console.log('=== ZOOM OPERATION COMPLETED ===');
+      console.log('Final state:', {
+        zoomLevel,
+        isDraggingEnabled,
+        imgClasses: img.className,
+        imgPosition: { left: img.style.left, top: img.style.top },
+        imgCursor: img.style.cursor
+      });
     });
+    
+    // Функция для настройки перемещения изображения
+    const setupImageDragging = (img, isZoomed) => {
+      console.log('setupImageDragging called:', { isZoomed, imgElement: img });
+      
+      // Удаляем предыдущие обработчики если они есть
+      if (img._dragStart) {
+        img.removeEventListener('mousedown', img._dragStart);
+        img.removeEventListener('touchstart', img._dragStart);
+      }
+      if (img._handleClick) {
+        img.removeEventListener('click', img._handleClick);
+      }
+      
+      if (!isZoomed) {
+        // Если изображение не увеличено, убираем возможность перемещения
+        img.style.cursor = 'default';
+        img.classList.remove('slide-img-zoomed');
+        console.log('Image dragging disabled - not zoomed');
+        return;
+      }
+      
+      // Устанавливаем курсор для увеличенного изображения
+      img.style.cursor = 'grab';
+      console.log('Image dragging enabled - setting up event listeners');
+      
+      let isDragging = false;
+      let startX, startY, initialLeft, initialTop;
+      
+      // Функция начала перемещения
+      const dragStart = (e) => {
+        console.log('🎯 dragStart called:', {
+          eventType: e.type,
+          target: e.target,
+          currentTarget: e.currentTarget,
+          targetIsImg: e.target === img,
+          currentTargetIsImg: e.currentTarget === img,
+          imgElement: img,
+          eventPhase: e.eventPhase,
+          bubbles: e.bubbles,
+          cancelable: e.cancelable
+        });
+        
+        // Более мягкая проверка - разрешаем события на изображении и его дочерних элементах
+        if (e.target !== img && !img.contains(e.target)) {
+          console.log('❌ Event target is not the image or its child, ignoring');
+          return;
+        }
+        
+        console.log('✅ Event target validation passed');
+        
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation(); // Останавливаем все другие обработчики
+        
+        isDragging = true;
+        img.classList.add('dragging');
+        img.style.cursor = 'grabbing';
+        
+        console.log('🚀 Drag started successfully');
+        
+        // Получаем координаты начала перемещения
+        const clientX = e.type === 'touchstart' ? e.touches[0].clientX : e.clientX;
+        const clientY = e.type === 'touchstart' ? e.touches[0].clientY : e.clientY;
+        
+        startX = clientX;
+        startY = clientY;
+        
+        console.log('📍 Start coordinates:', { startX, startY });
+        
+        // Получаем текущую позицию изображения
+        const computedStyle = window.getComputedStyle(img);
+        initialLeft = parseInt(computedStyle.left) || 0;
+        initialTop = parseInt(computedStyle.top) || 0;
+        
+        console.log('📐 Initial position:', { initialLeft, initialTop });
+        
+        // Добавляем обработчики перемещения и окончания к document
+        document.addEventListener('mousemove', dragMove, { passive: false, capture: true });
+        document.addEventListener('mouseup', dragEnd, { capture: true });
+        document.addEventListener('touchmove', dragMove, { passive: false, capture: true });
+        document.addEventListener('touchend', dragEnd, { capture: true });
+        
+        // Предотвращаем выделение текста
+        document.body.style.userSelect = 'none';
+        document.body.style.webkitUserSelect = 'none';
+        document.body.classList.add('dragging-active');
+        
+        console.log('🎪 Document event listeners added');
+      };
+      
+      // Функция перемещения
+      const dragMove = (e) => {
+        if (!isDragging) {
+          console.log('dragMove called but not dragging');
+          return;
+        }
+        
+        console.log('dragMove:', e.type, 'isDragging:', isDragging);
+        
+        e.preventDefault();
+        e.stopPropagation();
+        
+        // Получаем текущие координаты
+        const clientX = e.type === 'touchmove' ? e.touches[0].clientX : e.clientX;
+        const clientY = e.type === 'touchmove' ? e.touches[0].clientY : e.clientY;
+        
+        // Вычисляем смещение
+        const deltaX = clientX - startX;
+        const deltaY = clientY - startY;
+        
+        console.log('Movement delta:', { deltaX, deltaY, clientX, clientY, startX, startY });
+        
+        // Применяем новую позицию с ограничениями
+        let newLeft = initialLeft + deltaX;
+        let newTop = initialTop + deltaY;
+        
+        // Получаем размеры для ограничения перемещения
+        const container = img.parentElement;
+        const containerRect = container.getBoundingClientRect();
+        const imgRect = img.getBoundingClientRect();
+        
+        // Получаем текущий масштаб изображения
+        const zoomButton = document.querySelector('.fullscreen-zoom-btn');
+        const zoomLevel = zoomButton ? parseFloat(zoomButton.getAttribute('data-zoom-level')) : 1;
+        
+        // Вычисляем максимальные смещения
+        const maxOffsetX = Math.max(0, (imgRect.width * (zoomLevel - 1)) / 2);
+        const maxOffsetY = Math.max(0, (imgRect.height * (zoomLevel - 1)) / 2);
+        
+        console.log('Constraints:', { 
+          zoomLevel, 
+          maxOffsetX, 
+          maxOffsetY, 
+          imgWidth: imgRect.width, 
+          imgHeight: imgRect.height,
+          containerWidth: containerRect.width,
+          containerHeight: containerRect.height
+        });
+        
+        // Ограничиваем перемещение
+        const constrainedLeft = Math.max(-maxOffsetX, Math.min(maxOffsetX, newLeft));
+        const constrainedTop = Math.max(-maxOffsetY, Math.min(maxOffsetY, newTop));
+        
+        console.log('Position update:', { 
+          newLeft, 
+          newTop, 
+          constrainedLeft, 
+          constrainedTop,
+          initialLeft,
+          initialTop
+        });
+        
+        // Применяем новую позицию
+        img.style.left = constrainedLeft + 'px';
+        img.style.top = constrainedTop + 'px';
+        
+        console.log('Applied styles:', { 
+          left: img.style.left, 
+          top: img.style.top,
+          cursor: img.style.cursor,
+          transform: img.style.transform
+        });
+      };
+      
+      // Функция окончания перемещения
+      const dragEnd = (e) => {
+        console.log('dragEnd called:', e.type, 'isDragging:', isDragging);
+        
+        if (!isDragging) return;
+        
+        isDragging = false;
+        img.classList.remove('dragging');
+        img.style.cursor = 'grab';
+        
+        console.log('Drag ended, cleaning up event listeners');
+        
+        // Удаляем обработчики
+        document.removeEventListener('mousemove', dragMove);
+        document.removeEventListener('mouseup', dragEnd);
+        document.removeEventListener('touchmove', dragMove);
+        document.removeEventListener('touchend', dragEnd);
+        
+        // Восстанавливаем выделение текста
+        document.body.style.userSelect = '';
+        document.body.style.webkitUserSelect = '';
+        document.body.classList.remove('dragging-active');
+        
+        console.log('Drag cleanup completed');
+      };
+      
+      // Сохраняем ссылку на функцию для возможности удаления
+      img._dragStart = dragStart;
+      
+      // Добавляем обработчики начала перемещения с capture для перехвата событий
+      img.addEventListener('mousedown', dragStart, { passive: false, capture: true });
+      img.addEventListener('touchstart', dragStart, { passive: false, capture: true });
+      
+      // Также добавляем обработчики без capture как запасной вариант
+      img.addEventListener('mousedown', (e) => {
+        console.log('🔄 Backup mousedown handler triggered');
+        if (!isDragging) {
+          dragStart(e);
+        }
+      }, { passive: false });
+      
+      console.log('Event listeners added to image:', {
+        mousedown: true,
+        touchstart: true,
+        imgSrc: img.src,
+        imgClasses: img.className,
+        imgPosition: { left: img.style.left, top: img.style.top },
+        imgCursor: img.style.cursor,
+        imgZIndex: window.getComputedStyle(img).zIndex,
+        imgPointerEvents: window.getComputedStyle(img).pointerEvents
+      });
+      
+      // Проверяем, что изображение действительно может получать события
+      const imgRect = img.getBoundingClientRect();
+      console.log('Image positioning info:', {
+        boundingRect: imgRect,
+        offsetParent: img.offsetParent,
+        parentElement: img.parentElement,
+        isVisible: imgRect.width > 0 && imgRect.height > 0
+      });
+      
+      // Добавляем тестовый обработчик для проверки получения событий
+      const testHandler = (e) => {
+        console.log('🧪 TEST: Image received event:', e.type, 'at', { x: e.clientX, y: e.clientY });
+      };
+      
+      img.addEventListener('mouseenter', testHandler);
+      img.addEventListener('mouseleave', testHandler);
+      img.addEventListener('mouseover', testHandler);
+      
+      // Принудительно устанавливаем стили для обеспечения получения событий
+      img.style.pointerEvents = 'auto';
+      img.style.position = 'relative';
+      img.style.zIndex = '1000';
+      
+      console.log('🔧 Forced pointer events and positioning styles applied');
+      
+      // Добавляем простой обработчик двойного клика для возврата в центр
+      img.addEventListener('dblclick', (e) => {
+        console.log('🖱️ Double click detected - resetting image position');
+        e.preventDefault();
+        e.stopPropagation();
+        
+        // Плавно возвращаем изображение в центр
+        img.style.transition = 'top 0.3s ease, left 0.3s ease';
+        img.style.top = '0px';
+        img.style.left = '0px';
+        
+        // Убираем transition после анимации
+        setTimeout(() => {
+          img.style.transition = 'top 0.1s ease, left 0.1s ease';
+        }, 300);
+      });
+      
+      console.log('✅ Double click handler added for image reset');
+    };
     
     // Создаем панель с миниатюрами устройств
     const devicesPanel = document.createElement('div');
@@ -777,20 +1105,9 @@ document.addEventListener("DOMContentLoaded", function () {
     setTimeout(centerSlides, 100); // Добавляем небольшую задержку для корректного расчета
     
     // Останавливаем автоматическую смену слайдов во ВСЕХ слайдерах при открытии полноэкранного режима
-    if (heroSlideInterval) {
-      clearInterval(heroSlideInterval);
-      heroSlideInterval = null;
-    }
-    
-    if (padSlideInterval) {
-      clearInterval(padSlideInterval);
-      padSlideInterval = null;
-    }
-    
-    if (phoneSlideInterval) {
-      clearInterval(phoneSlideInterval);
-      phoneSlideInterval = null;
-    }
+    stopHeroSlider();
+    stopPadSlider();
+    stopPhoneSlider();
     
     // Добавляем обработчики для автоматического скрытия/отображения элементов интерфейса
     setupUserActivityTracking(overlay);
@@ -845,13 +1162,48 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Функция для закрытия полноэкранного режима
   const closeFullscreenSlider = () => {
+    console.log('=== CLOSING FULLSCREEN SLIDER ===');
+    
     // Удаляем обработчики активности пользователя
     removeUserActivityTracking(overlay);
     
     // Сбрасываем масштабирование изображений перед закрытием
     const activeImages = document.querySelectorAll('.fullscreen .active img');
-    activeImages.forEach(img => {
+    console.log('Found active images to reset:', activeImages.length);
+    
+    activeImages.forEach((img, index) => {
+      console.log(`Resetting active image ${index + 1}:`, {
+        src: img.src,
+        currentClasses: img.className,
+        currentPosition: { left: img.style.left, top: img.style.top },
+        currentCursor: img.style.cursor
+      });
+      
       img.classList.remove('slide-img-zoomed', 'slide-img-zoomed-1-5', 'slide-img-zoomed-2');
+      // Сбрасываем позицию изображения
+      img.style.top = '0px';
+      img.style.left = '0px';
+      img.style.cursor = 'default';
+      
+      // Удаляем обработчики перемещения
+      if (img._dragStart) {
+        img.removeEventListener('mousedown', img._dragStart);
+        img.removeEventListener('touchstart', img._dragStart);
+        delete img._dragStart;
+        console.log(`Removed drag handlers from active image ${index + 1}`);
+      }
+      // Удаляем обработчик двойного клика
+      if (img._handleClick) {
+        img.removeEventListener('click', img._handleClick);
+        delete img._handleClick;
+        console.log(`Removed click handler from active image ${index + 1}`);
+      }
+      
+      console.log(`Active image ${index + 1} reset completed:`, {
+        newClasses: img.className,
+        newPosition: { left: img.style.left, top: img.style.top },
+        newCursor: img.style.cursor
+      });
     });
     
     // Удаляем кнопки закрытия, увеличения и контейнер с элементами управления
@@ -954,15 +1306,9 @@ document.addEventListener("DOMContentLoaded", function () {
     
     // Возобновляем автоматическую смену слайдов только если все слайдеры закрыты
     if (allClosed) {
-      if (heroSlides.length > 1 && !heroSlideInterval) {
-        heroSlideInterval = setInterval(changeHeroSlide, 5000);
-      }
-      if (padSlides.length > 1 && !padSlideInterval) {
-        padSlideInterval = setInterval(changePadSlide, 5000);
-      }
-      if (phoneSlides.length > 1 && !phoneSlideInterval) {
-        phoneSlideInterval = setInterval(changePhoneSlide, 5000);
-      }
+      startHeroSlider();
+      startPadSlider();
+      startPhoneSlider();
     }
   };
 
@@ -1010,5 +1356,55 @@ document.addEventListener("DOMContentLoaded", function () {
     )) {
       closeFullscreenSlider();
     }
+  });
+
+  // Анимация блика для блока header-cta
+  function animateHeaderCtaShine() {
+    const headerCta = document.querySelector('.header-cta');
+    
+    if (headerCta) {
+      // Сбрасываем анимацию при необходимости повторного запуска
+      headerCta.style.animation = 'none';
+      void headerCta.offsetWidth;
+      headerCta.style.animation = '';
+      
+      // Псевдоэлемент будет автоматически анимироваться через CSS
+    } else {
+      console.error('Элемент .header-cta не найден!');
+    }
+  }
+  
+  // Запускаем анимацию блика после полной загрузки страницы
+  window.addEventListener('load', animateHeaderCtaShine);
+
+  // Также запускаем сразу для случаев, когда контент уже загружен
+  animateHeaderCtaShine();
+  
+  // Глобальная отладка событий мыши для диагностики
+  let globalMouseDebug = false;
+  
+  // Включаем отладку при нажатии Ctrl+Shift+D
+  document.addEventListener('keydown', (e) => {
+    if (e.ctrlKey && e.shiftKey && e.key === 'D') {
+      globalMouseDebug = !globalMouseDebug;
+      console.log('Global mouse debug:', globalMouseDebug ? 'ENABLED' : 'DISABLED');
+    }
+  });
+  
+  // Отладка всех событий мыши на документе
+  ['mousedown', 'mousemove', 'mouseup', 'click'].forEach(eventType => {
+    document.addEventListener(eventType, (e) => {
+      if (globalMouseDebug) {
+        console.log(`Global ${eventType}:`, {
+          target: e.target,
+          targetClasses: e.target.className,
+          targetTag: e.target.tagName,
+          clientX: e.clientX,
+          clientY: e.clientY,
+          button: e.button,
+          buttons: e.buttons
+        });
+      }
+    }, true);
   });
 });
