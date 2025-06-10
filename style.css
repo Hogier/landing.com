@@ -357,7 +357,7 @@ nav a:hover {
 /* ---------- Секция проблем ---------- */
 .problems {
   padding: 90px 0;
-  background-color: var(--gray-light-color);
+  background: repeating-linear-gradient(-135deg, /* направление полос */ #ffffff, /* цвет 1 */ #ebeff1 19px, /* высота полосы */ #e0e0e0 20px, /* цвет 2 */ #ebeff1 40px /* высота следующей полосы */);
   position: relative;
 }
 
