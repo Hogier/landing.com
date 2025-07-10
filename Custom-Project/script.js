@@ -52,6 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
+    /*
     // Автоматическое переключение карточек hero
     let currentCardIndex = 0;
     setInterval(() => {
@@ -59,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
         currentCardIndex = (currentCardIndex + 1) % showcaseCards.length;
         showcaseCards[currentCardIndex].classList.add('active');
     }, 6000); // Увеличил интервал до 6 секунд
-    
+    */
     // ============= Плавная прокрутка к секциям =============
     const anchorLinks = document.querySelectorAll('a[href^="#"]');
     
@@ -242,6 +243,21 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // ============= Анимация при скролле =============
+
+    // Скрытие хеадера при скролле
+    const header = document.querySelector('header');
+    let lastScrollY = 0;
+    document.addEventListener('scroll', function(e) {
+        if(window.scrollY > lastScrollY) {
+            lastScrollY = window.scrollY;
+            header.classList.add('hidden');
+        } else if(window.scrollY < lastScrollY) {
+            lastScrollY = window.scrollY;
+            header.classList.remove('hidden');
+        }
+    });
+
+    // Анимация при скролле
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
@@ -255,6 +271,128 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, observerOptions);
     
+    /*
+    // Прокрутка технологий при скролле и вручную
+    //  При скролле
+    const techStack = document.querySelector('.tech-stack-grid');
+    let isElementVisible = false;
+    
+    const observerTech = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        isElementVisible = entry.isIntersecting;
+      });
+    }, { threshold: 0 });
+    
+    observerTech.observe(techStack);
+    
+    window.addEventListener('scroll', () => {
+      if (!isElementVisible) return;
+    
+      const scrollPosition = window.scrollY;
+      const elementTop = techStack.getBoundingClientRect().top  + window.scrollY;
+      const viewportHeight = window.innerHeight;
+    
+      const scrollProgress = Math.min(
+        Math.max((scrollPosition - elementTop + viewportHeight - 200) / (viewportHeight - 200), 0),
+        1
+      );
+      console.log("scrollProgress: ", scrollProgress);
+
+    
+      const offset = -850 * scrollProgress;
+      console.log("offset: ", offset);
+      techStack.style.left = `${offset}px`;
+    });
+
+    // Анимация при скролле
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-in');
+            }
+        });
+    }, observerOptions);
+    
+
+    // вручную
+    document.addEventListener('DOMContentLoaded', function() {
+        const grid = document.querySelector('.tech-stack-grid');
+        const container = document.querySelector('.scroll-gasket');
+        let isDragging = false;
+        let startX;
+        let scrollLeft;
+    
+        // Для мыши
+        container.addEventListener('mousedown', function(e) {
+            isDragging = true;
+            startX = e.pageX - container.offsetLeft;
+            scrollLeft = grid.scrollLeft;
+            container.style.cursor = 'grabbing';
+            e.preventDefault(); // Предотвращаем выделение текста при перетаскивании
+        });
+    
+        // Для тач-устройств
+        container.addEventListener('touchstart', function(e) {
+            isDragging = true;
+            startX = e.touches[0].pageX - container.offsetLeft;
+            scrollLeft = grid.scrollLeft;
+            e.preventDefault(); // Предотвращаем стандартное поведение
+        });
+    
+        document.addEventListener('mouseup', function() {
+            isDragging = false;
+            container.style.cursor = 'grab';
+        });
+    
+        document.addEventListener('touchend', function() {
+            isDragging = false;
+        });
+    
+        document.addEventListener('mousemove', function(e) {
+            if (!isDragging) return;
+            const x = e.pageX - container.offsetLeft;
+            const walk = (x - startX) * 2; // Умножаем для более плавного скролла
+            handleScroll(walk);
+        });
+    
+        document.addEventListener('touchmove', function(e) {
+            if (!isDragging) return;
+            const x = e.touches[0].pageX - container.offsetLeft;
+            const walk = (x - startX) * 2;
+            handleScroll(walk);
+            e.preventDefault(); // Предотвращаем стандартное поведение
+        });
+    
+        function handleScroll(walk) {
+            // Вычисляем границы
+            const maxScrollLeft = grid.scrollWidth - container.offsetWidth;
+            const newScrollLeft = scrollLeft - walk;
+    
+            // Применяем ограничения
+            if (newScrollLeft <= 0) {
+                grid.style.transform = `translateX(0px)`;
+            } else if (newScrollLeft >= maxScrollLeft) {
+                grid.style.transform = `translateX(-${maxScrollLeft}px)`;
+            } else {
+                grid.style.transform = `translateX(-${newScrollLeft}px)`;
+            }
+        }
+    
+        // Инициализация стилей
+        container.style.cursor = 'grab';
+        container.style.overflow = 'hidden';
+        grid.style.display = 'inline-block';
+        grid.style.whiteSpace = 'nowrap';
+        grid.style.transition = 'transform 0.1s ease-out';
+    });
+
+*/
+
     // Наблюдаем за элементами для анимации
     const animateElements = document.querySelectorAll('.expertise-card, .value-card, .service-card, .approach-step, .testimonial-card');
     animateElements.forEach(el => {
