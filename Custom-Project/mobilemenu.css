@@ -1,0 +1,28 @@
+
+.mobile-menu {
+    position: fixed;
+    top: 75px; 
+    left: 0;
+    width: 100%;
+    background: rgba(50, 50, 50, 0.95);
+    color: white;
+    display: none;
+    z-index: 5000;
+  }
+  
+  .mobile-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .mobile-menu li {
+    padding: 1rem;
+    border-bottom: 1px solid #777;
+    cursor: pointer;
+  }
+  
+  .mobile-menu li:hover {
+    background: #666;
+  }
+  

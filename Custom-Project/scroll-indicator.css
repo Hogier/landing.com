@@ -1,0 +1,120 @@
+.scroll-indicator {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.scroll-indicator.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.indicator-dots {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.indicator-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: linear-gradient(0deg, #f59c6164 0%, #0000 75%);
+    border: 0px solid #f66e14;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    box-shadow: 0px 1px 0px #f66e14;}
+
+.indicator-dot:hover {
+    background-color: #f66e14;
+    transform: scale(1.2);
+}
+
+.indicator-dot.active {
+    background-color: #f66e14;
+    border-color: #f66e14;
+    box-shadow: 0px 0px 0px #f66e14;
+    transform: scale(1.2);
+
+}
+
+.indicator-dot::after {
+    content: attr(data-section);
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.indicator-dot.active::after {
+    opacity: 1;
+    visibility: visible;
+
+    transform: scale(0.8333);
+    position: absolute;
+    right: 14px;
+    top: calc(50% - 14px);
+    
+}
+
+.indicator-dot:hover::after {
+    opacity: 1;
+    visibility: visible;
+
+    transform: scale(0.8333);
+    position: absolute;
+    right: 14px;
+    top: calc(50% - 14px);
+}
+
+@media (max-width: 768px) {
+    .scroll-indicator {
+        right: 10px;
+    }
+    
+    .indicator-dot {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+.indicator-dot {
+    /*animation: fadeIn 0.5s ease forwards;
+    animation-delay: calc(var(--index, 0) * 0.1s);*/
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(20px) scale(0.1);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+/* Добавить переменные для задержки анимации */
+.indicator-dots .indicator-dot:nth-child(1) { --index: 1; }
+.indicator-dots .indicator-dot:nth-child(2) { --index: 2; }
+.indicator-dots .indicator-dot:nth-child(3) { --index: 3; }
+.indicator-dots .indicator-dot:nth-child(4) { --index: 4; }
+.indicator-dots .indicator-dot:nth-child(5) { --index: 5; }
+.indicator-dots .indicator-dot:nth-child(6) { --index: 6; }

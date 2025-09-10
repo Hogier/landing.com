@@ -358,7 +358,7 @@ nav a:hover {
 /* ---------- Секция проблем ---------- */
 .problems {
   padding: 90px 0;
-  background: repeating-linear-gradient(-135deg, #fff, #dce7ec 19px, #4361ee82 20px, #fff 40px );
+  background: repeating-linear-gradient(-135deg, #fff, #dce7ec 19px, #4361eeab 20px, #fff 40px );
   position: relative;
 }
 
